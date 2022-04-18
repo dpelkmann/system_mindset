@@ -40,7 +40,7 @@ alias sm_amf='sm add `sm status | grep modified | sed "s/\(.*modified:\s*\)//"`'
 # | remove modified files
 alias sm_rmf='sm reset --mixed'
 # | add deleted files
-alias sm_adf='sm add `sm status | grep  | sed "s/\(.*deleted:\s*\)//"`'
+alias sm_adf='sm add `sm status | grep deleted | sed "s/\(.*deleted:\s*\)//"`'
 
 # + System Command Aliases
 # | note:   If the name of an alias also referes to a program name, you can
