@@ -36,7 +36,7 @@ alias sm='/usr/bin/git --git-dir=$HOME/Repositories/system_mindset/ --work-tree=
 # | manually managed, so not show other files in $HOME 
 sm config --local status.showUntrackedFiles no
 # | update modified, deleted and new files to commit
-alias sm_stage-changes="sm add $(sm status | grep 'modified\|deleted\|new file' | sed 's/.*://')"
+alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" | sed "s/.*://")'
 # | remove updated files 
 alias sm_unstage-changes='sm reset --mixed'
 
