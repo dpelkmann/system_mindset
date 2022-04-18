@@ -25,27 +25,40 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-### .bashrc adjustments by David Pelkmann ###
+###############################################################################
+### Adjustments by David Pelkmann 
+###############################################################################
 
-# dotfile management via git bare
-# source 1: https://www.youtube.com/watch?v=tBoLDpTWVOM
-# source 2: https://www.atlassian.com/git/tutorials/dotfiles
-alias system_mindset='/usr/bin/git --git-dir=$HOME/Repositories/system_mindset/ --work-tree=$HOME'
-# after that in bash: system_mindset --local status.showUntrackedFiles no
+# + system_mindset - Dotfile Management via git bare
+# | 1. source: https://www.youtube.com/watch?v=tBoLDpTWVOM
+# | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
+alias sm='/usr/bin/git --git-dir=$HOME/Repositories/system_mindset/ --work-tree=$HOME'
+# | manually managed, so not show other files in $HOME 
+sm config --local status.showUntrackedFiles no
+# | add modified files
+alias sm_amf='sm add `sm status | grep modified | sed "s/\(.*modified:\s*\)//"`'
+# | remove modified files
+alias sm_rmf='sm reset --mixed'
 
-# system command aliases
-alias ls='ls -l --color'
+# + System Command Aliases
+# | note:   If the name of an alias also referes to a program name, you can
+# |         access this program a starting backslash.
+alias ls='lsd --almost-all --human-readable --long --group-dirs first'
 alias nv='nvim'
 
-# python environment program aliases
+# + python environment program aliases
 alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 
-# individual exports
+# + individual exports
 export EDITOR=nvim
 
+###############################################################################
+
 unset rc
+
+### conda adjustments ###
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
