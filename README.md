@@ -9,5 +9,6 @@ This repository stores and manages personal Linux configuration files.
 * htop
 * tmux
 * kitty
+* neofetch
 * neovim
 
