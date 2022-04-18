@@ -4,40 +4,57 @@ This repository stores and manages personal Linux configuration files.
 
 ## Software
 
-__lsd__
-'''bash
+### lsd
+
+```bash
 sudo dnf lsd
-'''
-__bat__
-'''bash
+```
+
+### bat
+
+```bash
 sudo dnf bat
-'''
-__htop__
-'''bash
+```
+
+### htop
+
+```bash
 sudo dnf htop
-'''
-__tmux__
-'''bash
+```
+
+### tmux
+
+```bash
 sudo dnf tmux
-'''
-__kitty__
-'''bash
+```
+
+### kitty
+
+```bash
 sudo dnf kitty
-'''
-__neofetch__
-'''bash
+```
+
+### neofetch
+
+```bash
 sudo dnf neofetch
-'''
-__nodejs__
-'''bash
+```
+
+### nodejs
+
+```bash
 sudo dnf nodejs
-'''
-__yarn__
-'''bash
+```
+
+### yarn
+
+```bash
 npm install yarn
-'''
-__neovim__
-'''bash
+```
+
+### neovim
+
+```bash
 sudo dnf neovim
-'''
+```
 
