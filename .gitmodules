@@ -13,3 +13,6 @@
 [submodule ".config/kitty/kitty-themes"]
 	path = .config/kitty/kitty-themes
 	url = https://github.com/dexpota/kitty-themes
+[submodule "kitty/kitty-themes"]
+	path = kitty/kitty-themes
+	url = https://github.com/dexpota/kitty-themes
