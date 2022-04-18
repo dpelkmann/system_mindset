@@ -36,11 +36,9 @@ alias sm='/usr/bin/git --git-dir=$HOME/Repositories/system_mindset/ --work-tree=
 # | manually managed, so not show other files in $HOME 
 sm config --local status.showUntrackedFiles no
 # | add modified files
-alias sm_amf='sm add `sm status | grep modified | sed "s/\(.*modified:\s*\)//"`'
+alias sm_uc="sm add $(sm status | grep 'modified\|deleted\|new file' | sed 's/.*://')"
 # | remove modified files
-alias sm_rmf='sm reset --mixed'
-# | add deleted files
-alias sm_adf='sm add `sm status | grep deleted | sed "s/\(.*deleted:\s*\)//"`'
+alias sm_rc='sm reset --mixed'
 
 # + System Command Aliases
 # | note:   If the name of an alias also referes to a program name, you can
