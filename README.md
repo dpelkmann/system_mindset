@@ -1,8 +1,37 @@
 # System Mindset
 
-This repository stores and manages personal Linux configuration files.
+This repository stores and manages personal Linux configuration files. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
 
 ## Software the Configurations of this Repository are intended for
+
+### Installation
+
+```bash
+# change to home directory
+cd $HOME
+# create directory for system_mindset
+sm_dir=$HOME/.config/sm/
+mkdir -p $sm_dir
+# create alias for system mindset
+alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
+# add Repository to .gitignore to prevent recursion problems and delete 
+# previous added lines
+sed -i '/system_mindset/d' .gitignore
+echo ".config/sm # inserted by system_mindset" >> .gitignore
+# clone system_mindset
+git clone --bare git@github.com:dpelkmann/system_mindset.git ${sm_dir}system_mindset
+# checkout bare repository. It would overwrite existing config files, therefore
+# they will be backuped.
+for file2backup in $(sm checkout 2>&1 | egrep "\s+\." | awk {'print $1'})
+do
+    echo "$file2backup"
+    dest=$(dirname $file2backup)
+    mkdir -p ${sm_dir}backup_${sm_dir}backup-$(date +%F_%T)/$dest/$dest
+    mv $file2backup ${sm_dir}backup/$dest
+done
+sm checkout
+sm config --local status.showUntrackedFiles no
+```
 
 ### lsd
 

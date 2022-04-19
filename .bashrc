@@ -32,7 +32,8 @@ fi
 # + system_mindset - Dotfile Management via git bare
 # | 1. source: https://www.youtube.com/watch?v=tBoLDpTWVOM
 # | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
-alias sm='/usr/bin/git --git-dir=$HOME/Repositories/system_mindset/ --work-tree=$HOME'
+sm_dir=$HOME/.config/sm/
+alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
 # | manually managed, so not show other files in $HOME 
 sm config --local status.showUntrackedFiles no
 # | update modified, deleted and new files to commit
