@@ -7,43 +7,43 @@ This repository stores and manages personal Linux configuration files.
 ### lsd
 
 ```bash
-sudo dnf lsd
+sudo dnf install lsd
 ```
 
 ### bat
 
 ```bash
-sudo dnf bat
+sudo dnf install bat
 ```
 
 ### htop
 
 ```bash
-sudo dnf htop
+sudo dnf install htop
 ```
 
 ### tmux
 
 ```bash
-sudo dnf tmux
+sudo dnf install tmux
 ```
 
 ### kitty
 
 ```bash
-sudo dnf kitty
+sudo dnf install kitty
 ```
 
 ### neofetch
 
 ```bash
-sudo dnf neofetch
+sudo dnf install neofetch
 ```
 
 ### nodejs
 
 ```bash
-sudo dnf nodejs
+sudo dnf install nodejs
 ```
 
 ### yarn
@@ -55,6 +55,13 @@ npm install yarn
 ### neovim
 
 ```bash
-sudo dnf neovim
+sudo dnf install neovim
 ```
+
+### ranger
+
+```bash
+sudo dnf install ranger
+```
+
 
