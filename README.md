@@ -89,7 +89,6 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ${sm_dir}nerd-fonts/
 bash ${sm_dir}nerd-fonts/install.sh
 ```
 
-
 ### neofetch
 
 ```bash
@@ -112,6 +111,34 @@ npm install yarn
 
 ```bash
 sudo dnf install neovim
+```
+
+For the plugin Conquer of Completion (coc.nvim) languages are to be installed.
+
+```vim
+" Bash
+:CocInstall coc-sh
+
+" C  / C++ / Objective-C
+:CocInstall coc-clangd
+
+" Markdown
+:CocInstall coc-markdownlint
+
+" LaTeX
+:CocInstall coc-texlab
+
+" Json
+:CocInstall coc-json
+
+" Javascript / Typescript
+:CocInstall coc-tsserver
+
+" HTML
+:CocInstall coc-HTML
+
+" Python
+:CocInstall coc-pyright
 ```
 
 ### ranger
