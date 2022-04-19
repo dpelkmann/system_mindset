@@ -113,32 +113,22 @@ npm install yarn
 sudo dnf install neovim
 ```
 
-For the plugin Conquer of Completion (coc.nvim) languages are to be installed.
+For the plugin Conquer of Completion (coc.nvim) several extensions need to be installed. To list, search und manage them, coc-marketplace can be used.
 
 ```vim
-" Bash
-:CocInstall coc-sh
+" install coc-marketplace
+:CocInstall coc-marketplace
+" list all available extensions
+:CocInstall marketplace
+" search all fitting extensions
+:CocInstall marketplace <pattern>
+```
 
-" C  / C++ / Objective-C
-:CocInstall coc-clangd
+personal collection
 
-" Markdown
-:CocInstall coc-markdownlint
-
-" LaTeX
-:CocInstall coc-texlab
-
-" Json
-:CocInstall coc-json
-
-" Javascript / Typescript
-:CocInstall coc-tsserver
-
-" HTML
-:CocInstall coc-HTML
-
-" Python
-:CocInstall coc-pyright
+```vim
+" Bash, C/C++/Objective-C, Markdown, LaTeX, Json, Javascript/Typescript, HTML, Python
+:CocInstall coc-sh coc-clangd coc-markdownlint coc-texlab coc-json coc-tsserver coc-html coc-pyright
 ```
 
 ### ranger
