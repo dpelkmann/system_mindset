@@ -11,6 +11,7 @@
 :set title
 :set ignorecase " case insensitive search
 :set smartcase
+:set encoding=UTF-8
 
 " style of spelling mistakes
 hi clear SpellBad
@@ -107,6 +108,9 @@ source ~/.config/nvim/plugins/vim-rooter.vim
 " vim-sayonara - https://github.com/mhinz/vim-sayonara
 " note: plugin provides a single command that deletes the current buffer
 source ~/.config/nvim/plugins/sayonara.vim
+" vim-devicons - https://github.com/ryanoasis/vim-devicons
+" note: Adds filetype glyphs (icons) to various vim plugins
+source ~/.config/nvim/plugins/vim-devicons.vim
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim

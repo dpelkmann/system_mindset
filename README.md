@@ -29,8 +29,14 @@ do
     mkdir -p ${sm_dir}backup_${sm_dir}backup-$(date +%F_%T)/$dest/$dest
     mv $file2backup ${sm_dir}backup/$dest
 done
+# finally checkout
 sm checkout
+# untracked files should not be shown
 sm config --local status.showUntrackedFiles no
+# download indexed submodules
+sm submodule update --init --recursive
+# update downloaded submodules
+sm submodule update --recursive --remote
 ```
 
 ### lsd
@@ -68,6 +74,21 @@ JetBrainsMono (https://github.com/JetBrains/JetBrainsMono) in kitty config requi
 ```bash
 sudo dnf install jetbrains-mono-fonts-all
 ```
+
+To be able to display the appropriate icons in the terminal, the package nerd-fonts is necessary.
+
+```bash
+# change to home directory
+cd $HOME
+# create directory for system_mindset
+sm_dir=$HOME/.config/sm/
+mkdir -p $sm_dir
+# clone nerd-fonts repository
+git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ${sm_dir}nerd-fonts/
+# install nerd-fonts
+bash ${sm_dir}nerd-fonts/install.sh
+```
+
 
 ### neofetch
 
