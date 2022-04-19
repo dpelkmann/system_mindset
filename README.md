@@ -2,7 +2,7 @@
 
 This repository stores and manages personal Linux configuration files.
 
-## Software
+## Software the Configurations of this Repository are intended for
 
 ### lsd
 
