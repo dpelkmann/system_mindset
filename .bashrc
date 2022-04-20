@@ -55,6 +55,17 @@ alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 # + individual exports
 export EDITOR=nvim
 
+# + starship prompt configuration
+eval "$(starship init bash)"
+
+# + powerline prompt configuration
+#if [ -f `which powerline-daemon` ]; then
+#  powerline-daemon -q
+#  POWERLINE_BASH_CONTINUATION=1
+#  POWERLINE_BASH_SELECT=1
+#  . /usr/share/powerline/bash/powerline.sh
+#fi
+
 ###############################################################################
 
 unset rc

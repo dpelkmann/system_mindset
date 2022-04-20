@@ -135,6 +135,19 @@ personal collection
 ```bash
 sudo dnf install ranger
 ```
+
+### starship prompt
+
+```bash
+sudo dnf install starship
+```
+
+### powerline prompt
+
+```bash
+sudo dnf install powerline tmux-powerline powerline-fonts
+```
+
 ## Additional Helpful Software for Fedora (Gnome Edition)
 
 ### Gnome Extensions App
