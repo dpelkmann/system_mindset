@@ -2,9 +2,7 @@
 
 This repository stores and manages personal Linux configuration files. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
 
-## Software the Configurations of this Repository are intended for
-
-### Installation
+## Setup
 
 ```bash
 # change to home directory
@@ -38,6 +36,7 @@ sm submodule update --init --recursive
 # update downloaded submodules
 sm submodule update --recursive --remote
 ```
+## Software the Configurations of this Repository are intended for
 
 ### lsd
 
