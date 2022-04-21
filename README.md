@@ -239,6 +239,12 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak install flathub com.giuspen.cherrytree
 ```
 
+### trash-cli
+
+```bash
+sudo dnf install trash-cli
+```
+
 ### Spotify
 
 ```bash
