@@ -115,12 +115,12 @@ source ~/.config/nvim/plugins/sayonara.vim
 " vim-devicons - https://github.com/ryanoasis/vim-devicons
 " note: Adds filetype glyphs (icons) to various vim plugins
 source ~/.config/nvim/plugins/vim-devicons.vim
+" vimtex - https://github.com/lervag/vimtex
+source ~/.config/nvim/plugins/vimtex.vim
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim
 " vim-which-key - https://github.com/liuchengxu/vim-which-key
-
-" Latex workflow?
 
 call plug#end()
 
