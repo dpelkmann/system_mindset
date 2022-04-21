@@ -29,6 +29,10 @@ fi
 ### Adjustments by David Pelkmann 
 ###############################################################################
 
+# + individual exports
+export TERM="xterm-256color"                      # getting proper colors
+export EDITOR=nvim
+
 # + system_mindset - Dotfile Management via git bare
 # | 1. source: https://www.youtube.com/watch?v=tBoLDpTWVOM
 # | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
@@ -41,6 +45,12 @@ alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" 
 # | remove updated files 
 alias sm_unstage-changes='sm reset --mixed'
 
+# + set manpager
+# | use bat as manpager
+#export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
+# | use nvim as manpager
+export MANPAGER="nvim +Man!"
+
 # + System Command Aliases
 # | note:   If the name of an alias also referes to a program name, you can
 # |         access this program a starting backslash.
@@ -51,9 +61,6 @@ alias nv='nvim'
 alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
-
-# + individual exports
-export EDITOR=nvim
 
 # + starship prompt configuration
 eval "$(starship init bash)"

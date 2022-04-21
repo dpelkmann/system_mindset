@@ -23,6 +23,10 @@ hi SpellLocal cterm=underline ctermfg=203 guifg=#ff5f5f
 hi SpellRare cterm=underline ctermfg=203 guifg=#ff5f5f
 hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 
+" + nvim man open mode
+" | arguments: horz, vert, tab
+let g:ft_man_open_mode = "tab"
+
 "------------------------------------------------------------------------------
 "- key mappings 
 "------------------------------------------------------------------------------
