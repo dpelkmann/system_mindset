@@ -227,6 +227,18 @@ sudo dnf install solaar
 sudo dnf install inkscape
 ```
 
+### trash-cli
+
+```bash
+sudo dnf install trash-cli
+```
+
+### zathura
+
+```bash
+sudo dnf install zathura zathura-plugins-all 
+```
+
 ### flathub
 
 ```bash
@@ -237,12 +249,6 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 
 ```bash
 flatpak install flathub com.giuspen.cherrytree
-```
-
-### trash-cli
-
-```bash
-sudo dnf install trash-cli
 ```
 
 ### Spotify
