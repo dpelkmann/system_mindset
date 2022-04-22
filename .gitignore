@@ -1,2 +1,3 @@
 .config/sm # inserted by system_mindset
 **/__pycache__
+*.pyc

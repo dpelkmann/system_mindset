@@ -1,18 +1,24 @@
 [submodule ".tmux/plugins/tmux"]
 	path = .tmux/plugins/tmux
 	url = https://github.com/dracula/tmux
+    ignore = dirty
 [submodule ".tmux/plugins/tmux-continuum"]
 	path = .tmux/plugins/tmux-continuum
 	url = https://github.com/tmux-plugins/tmux-continuum
+    ignore = dirty
 [submodule ".tmux/plugins/tmux-resurrect"]
 	path = .tmux/plugins/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect
+    ignore = dirty
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
+    url = https://github.com/tmux-plugins/tpm
+    ignore = dirty
 [submodule ".config/kitty/kitty-themes"]
 	path = .config/kitty/kitty-themes
-	url = https://github.com/dexpota/kitty-themes
+    url = https://github.com/dexpota/kitty-themes
+    ignore = dirty
 [submodule ".config/ranger/plugins/ranger_devicons"]
 	path = .config/ranger/plugins/ranger_devicons
-	url = https://github.com/alexanderjeurissen/ranger_devicons
+    url = https://github.com/alexanderjeurissen/ranger_devicons
+    ignore = dirty
