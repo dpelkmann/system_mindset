@@ -20,11 +20,12 @@ echo ".config/sm # inserted by system_mindset" >> .gitignore
 git clone --bare git@github.com:dpelkmann/system_mindset.git ${sm_dir}system_mindset
 # checkout bare repository. It would overwrite existing config files, therefore
 # they will be backuped.
+backup_dir=backup_$(date +%F_%T)
 for file2backup in $(sm checkout 2>&1 | egrep "\s+\." | awk {'print $1'})
 do
     echo "$file2backup"
     dest=$(dirname $file2backup)
-    mkdir -p ${sm_dir}backup_${sm_dir}backup-$(date +%F_%T)/$dest/$dest
+    mkdir -p ${sm_dir}backup_${sm_dir}${backup_dir}/$dest/
     mv $file2backup ${sm_dir}backup/$dest
 done
 # finally checkout
