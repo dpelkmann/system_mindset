@@ -26,7 +26,7 @@ do
     echo "$file2backup"
     dest=$(dirname $file2backup)
     mkdir -p ${sm_dir}${backup_dir}/$dest/
-    mv $file2backup ${sm_dir}backup/$dest
+    mv $file2backup ${sm_dir}${backup_dir}/$dest/
 done
 # finally checkout
 sm checkout
