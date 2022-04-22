@@ -30,7 +30,7 @@ fi
 ###############################################################################
 
 # + individual exports
-export TERM="xterm-256color"                      # getting proper colors
+#export TERM="xterm-256color"                      # getting proper colors
 export EDITOR=nvim
 
 # + system_mindset - Dotfile Management via git bare
