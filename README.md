@@ -25,7 +25,7 @@ for file2backup in $(sm checkout 2>&1 | egrep "\s+\." | awk {'print $1'})
 do
     echo "$file2backup"
     dest=$(dirname $file2backup)
-    mkdir -p ${sm_dir}backup_${sm_dir}${backup_dir}/$dest/
+    mkdir -p ${sm_dir}${backup_dir}/$dest/
     mv $file2backup ${sm_dir}backup/$dest
 done
 # finally checkout
