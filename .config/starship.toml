@@ -1,10 +1,16 @@
 # Don't print a new line at the start of the prompt
 add_newline = false
 
+#format = """
+#[┌─ system ────❱](bold green) $username$hostname$git_branch$git_status$conda$python
+#[├─ directory ─❱](bold green) $directory
+#[$character](bold green)
+#"""
+
 format = """
-[┌─ system ────❱](bold green) $username$hostname$git_branch$git_status$conda$python
-[├─ directory ─❱](bold green) $directory
-[$character](bold green) 
+[┌─](bold green) $username$hostname$git_branch$git_status$conda$python
+[├─](bold green) $directory
+[$character](bold green)
 """
 
 [conda]
@@ -16,8 +22,8 @@ style = "bold green"
 
 # Replace the "❯" symbol in the prompt with "➟"
 [character]      # The name of the module we are configuring is "character"
-success_symbol = "[└─ ❱](bold green)"
-error_symbol = "[└─ ❱](bold red)"
+success_symbol = "[└─ ](bold green)"
+error_symbol = "[└─ ](bold red)"
 
 [cmd_duration]
 show_milliseconds = true
