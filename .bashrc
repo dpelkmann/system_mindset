@@ -51,11 +51,18 @@ alias sm_unstage-changes='sm reset --mixed'
 # | use nvim as manpager
 export MANPAGER="nvim +Man!"
 
+###############################################################################
 # + System Command Aliases
-# | note:   If the name of an alias also referes to a program name, you can
-# |         access this program a starting backslash.
+# | If the name of an alias also referes to a program name, you can access this
+# | program a starting backslash.
+# +--+ ls
 alias ls='lsd --almost-all --human-readable --long --group-dirs first'
+# +--+ nvim
 alias nv='nvim'
+# +--+ tmux
+alias tmls='tmux list-sessions'
+alias tmas='tmux attach-session -t'
+alias tmks='tmux kill-session -t'
 
 # + python environment program aliases
 alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
