@@ -29,27 +29,31 @@ fi
 ### Adjustments by David Pelkmann 
 ###############################################################################
 
-# + individual exports
-#export TERM="xterm-256color"                      # getting proper colors
+###############################################################################
+# + Individual Exports
+# +--+ getting proper colors
+export TERM="xterm-256color"
+# +--+ neovim as standard editor
 export EDITOR=nvim
+# +--+ set manpager
+#    | uncomment the program you want to have as manpager
+#    +--+ use bat as manpager
+#export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
+#    +--+ use nvim as manpager
+export MANPAGER="nvim +Man!"
 
+###############################################################################
 # + system_mindset - Dotfile Management via git bare
 # | 1. source: https://www.youtube.com/watch?v=tBoLDpTWVOM
 # | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
 sm_dir=$HOME/.config/sm/
 alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
-# | manually managed, so not show other files in $HOME 
+# +--+ manually managed, so not show other files in $HOME 
 sm config --local status.showUntrackedFiles no
-# | update modified, deleted and new files to commit
+# +--+ update modified, deleted and new files to commit
 alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" | sed "s/.*://")'
-# | remove updated files 
+# +--+ remove updated files 
 alias sm_unstage-changes='sm reset --mixed'
-
-# + set manpager
-# | use bat as manpager
-#export MANPAGER="sh -c 'sed -e s/.\\\\x08//g | bat -l man -p'"
-# | use nvim as manpager
-export MANPAGER="nvim +Man!"
 
 ###############################################################################
 # + System Command Aliases
@@ -63,16 +67,17 @@ alias nv='nvim'
 alias tmls='tmux list-sessions'
 alias tmas='tmux attach-session -t'
 alias tmks='tmux kill-session -t'
-
-# + python environment program aliases
+# +--+ python environment program aliases
 alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 
-# + starship prompt configuration
+###############################################################################
+# + Command Line Prompt
+# | uncomment the prompt you want
+# +--+ starship prompt configuration
 eval "$(starship init bash)"
-
-# + powerline prompt configuration
+# +--+ powerline prompt configuration
 #if [ -f `which powerline-daemon` ]; then
 #  powerline-daemon -q
 #  POWERLINE_BASH_CONTINUATION=1
