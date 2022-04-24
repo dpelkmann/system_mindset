@@ -1,6 +1,6 @@
 # System Mindset
 
-This repository stores and manages personal Linux configuration files. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
+This repository stores and manages personal Linux configuration files for Fedora 35. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
 
 ## Setup
 

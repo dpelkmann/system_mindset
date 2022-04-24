@@ -62,60 +62,69 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" load plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" + Load Plugins with Plug
 " | to install plugins: PlugInstall
+" + brief help
+" | :PluginList       - lists configured plugins
+" | :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" | :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" | :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 call plug#begin(data_dir . '/plugins')
-
-" fzf - https://github.com/junegunn/fzf.vim
-" note: search for words and files
+" + fzf - https://github.com/junegunn/fzf.vim
+" | search for words and files
 source ~/.config/nvim/plugins/fzf.vim
-" nightfox - https://github.com/EdenEast/nightfox.nvim
-" note: theme
+" + nightfox - https://github.com/EdenEast/nightfox.nvim
+" | theme
 source ~/.config/nvim/plugins/nightfox.vim
-" sonokai - https://github.com/sainnhe/sonokai
-" note: theme
+" + sonokai - https://github.com/sainnhe/sonokai
+" | theme
 source ~/.config/nvim/plugins/sonokai.vim
-" everforest - https://github.com/sainnhe/everforest
-" note: theme
+" + everforest - https://github.com/sainnhe/everforest
+" | theme
 source ~/.config/nvim/plugins/everforest.vim
-" nord - https://github.com/shaunsingh/nord.nvim
-" note: theme
+" + nord - https://github.com/shaunsingh/nord.nvim
+" | theme
 source ~/.config/nvim/plugins/nord.vim
-" vscode.nvim - https://github.com/Mofiqul/vscode.nvim
-" note: theme
+" + vscode.nvim - https://github.com/Mofiqul/vscode.nvim
+" | theme
 source ~/.config/nvim/plugins/vscode.vim
-" markdown-preview.nvim - https://github.com/iamcco/markdown-preview.nvim
-" note: interactive markdown preview in a browser 
+" + markdown-preview.nvim - https://github.com/iamcco/markdown-preview.nvim
+" | interactive markdown preview in a browser 
 source ~/.config/nvim/plugins/markdown-preview.vim
-" coc.vim - https://github.com/neoclide/coc.nvim
-" note: language server protocol server manager
-" !! A lot of languages are available. Each of them has it's own dependencies !!
+" + coc.vim - https://github.com/neoclide/coc.nvim
+" | language server protocol server manager
+" | !! A lot of languages are available. Each of them has it's own dependencies !!
 source ~/.config/nvim/plugins/coc.vim
-" vim-airline - https://github.com/vim-airline/vim-airline
-" note: status and tab line bar for vim
+" + vim-airline - https://github.com/vim-airline/vim-airline
+" | note: status and tab line bar for vim
 source ~/.config/nvim/plugins/vim-airline.vim
-" vim-airline-themes - https://github.com/vim-airline/vim-airline
-" note: theme
+" + vim-airline-themes - https://github.com/vim-airline/vim-airline
+" | note: theme
 source ~/.config/nvim/plugins/vim-airline-themes.vim
-" vim-fugitive - https://github.com/tpope/vim-fugitive
-" note: git integration for vim-airline
+" + vim-fugitive - https://github.com/tpope/vim-fugitive
+" | git integration for vim-airline
 source ~/.config/nvim/plugins/vim-fugitive.vim
-" vim-heritage - https://github.com/jessarcher/vim-heritage
-" note: makes sure any parent directories exist when writing a new file (:e)
+" + vim-heritage - https://github.com/jessarcher/vim-heritage
+" | makes sure any parent directories exist when writing a new file (:e)
 source ~/.config/nvim/plugins/vim-heritage.vim
-" nerdtree - https://github.com/preservim/nerdtree
-" note: the NERDTree is a file system explorer for the Vim editor
+" + nerdtree - https://github.com/preservim/nerdtree
+" | the NERDTree is a file system explorer for the Vim editor
 source ~/.config/nvim/plugins/nerdtree.vim
-" rooter - https://github.com/airblade/vim-rooter
-" note: changes the working directory to the project root of opened file
+" + vim-nerdtree-syntax-highlight - https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+" | his adds syntax for nerdtree on most common file extensions.
+source ~/.config/nvim/plugins/vim-nerdtree-syntax-highlight.vim
+" + rooter - https://github.com/airblade/vim-rooter
+" | changes the working directory to the project root of opened file
 source ~/.config/nvim/plugins/vim-rooter.vim
-" vim-sayonara - https://github.com/mhinz/vim-sayonara
-" note: plugin provides a single command that deletes the current buffer
+" + vim-sayonara - https://github.com/mhinz/vim-sayonara
+" | plugin provides a single command that deletes the current buffer
 source ~/.config/nvim/plugins/sayonara.vim
-" vim-devicons - https://github.com/ryanoasis/vim-devicons
-" note: Adds filetype glyphs (icons) to various vim plugins
+" + vim-devicons - https://github.com/ryanoasis/vim-devicons
+" | adds filetype glyphs (icons) to various vim plugins
 source ~/.config/nvim/plugins/vim-devicons.vim
-" vimtex - https://github.com/lervag/vimtex
+" + vimtex - https://github.com/lervag/vimtex
+" | add latex support to vim
 source ~/.config/nvim/plugins/vimtex.vim
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
