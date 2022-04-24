@@ -179,19 +179,19 @@ sudo dnf install gnome-tweaks
 
 ### Cryptomator
 
-https://github.com/cryptomator/cryptomator/releases
+[Manual Installation](https://github.com/cryptomator/cryptomator/releases)
 
 ### OneDrive Client for Linux
 
-https://github.com/abraunegg/onedrive/
+[Manual Installation](https://github.com/abraunegg/onedrive/)
 
 ### Microsoft Edge
 
-https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm
+[Manual Installation](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
 
 ### Antidote
 
-https://www.antidote.info/en/
+[Manual Installation](https://www.antidote.info/en/)
 
 ### keepassxc
 
@@ -209,6 +209,12 @@ sudo dnf install menulibre
 
 ```bash
 sudo dnf install dconf-editor
+```
+
+### Color Picker
+
+```bash
+sudo dnf install gcolor3
 ```
 
 ### DDC Control
