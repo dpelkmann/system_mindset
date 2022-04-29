@@ -12,6 +12,8 @@
 :set ignorecase " case insensitive search
 :set smartcase
 :set encoding=UTF-8
+:set scrolloff=8
+:set sidescrolloff=8
 
 " style of spelling mistakes
 hi clear SpellBad
