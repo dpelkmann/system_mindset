@@ -170,6 +170,8 @@ sudo dnf install gnome-extensions-app
 * https://extensions.gnome.org/extension/3933/toggle-night-light/
 * https://extensions.gnome.org/extension/4472/spotify-tray/
 * https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
+* https://extensions.gnome.org/extension/1595/nordvpn-connect/
+* https://extensions.gnome.org/extension/4415/fedora-linux-updates-indicator/
 
 ### Gnome Tweaks
 
