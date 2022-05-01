@@ -119,9 +119,9 @@ For the plugin Conquer of Completion (coc.nvim) several extensions need to be in
 " install coc-marketplace
 :CocInstall coc-marketplace
 " list all available extensions
-:CocInstall marketplace
+:CocList marketplace
 " search all fitting extensions
-:CocInstall marketplace <pattern>
+:CocList marketplace <pattern>
 ```
 
 personal collection
