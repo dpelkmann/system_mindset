@@ -37,6 +37,7 @@ sm submodule update --init --recursive
 # update downloaded submodules
 sm submodule update --recursive --remote
 ```
+
 ## Software the Configurations of this Repository are intended for
 
 ### lsd
@@ -55,6 +56,12 @@ sudo dnf install bat
 
 ```bash
 sudo dnf install htop
+```
+
+### tig
+
+```bash
+sudo dnf install tig
 ```
 
 ### tmux

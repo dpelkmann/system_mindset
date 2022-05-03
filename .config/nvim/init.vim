@@ -43,6 +43,9 @@ map bd :bd<cr>
 " create file if gf says file does not exist
 :map <leader>gf :e <cfile><cr>
 
+" open tig 
+map <leader>g :Tig<cr>
+
 " search informations
 " Note: after a search (?"search term"<CR>) n: for next, shft+n for previous
 " Note: search and replace all: ?%s/"word to replace"/"replace term"/g
@@ -128,6 +131,9 @@ source ~/.config/nvim/plugins/vim-devicons.vim
 " + vimtex - https://github.com/lervag/vimtex
 " | add latex support to vim
 source ~/.config/nvim/plugins/vimtex.vim
+" + vim-tig - https://github.com/codeindulgence/vim-tig
+" | add tig support to nvim
+source ~/.config/nvim/plugins/vim-tig.vim
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim
