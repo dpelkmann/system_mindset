@@ -54,6 +54,9 @@ sm config --local status.showUntrackedFiles no
 alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" | sed "s/.*://")'
 # +--+ remove updated files 
 alias sm_unstage-changes='sm reset --mixed'
+# +--+ add tig support
+sm config tig.status-show-untracked-files false
+alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
 
 ###############################################################################
 # + System Command Aliases
