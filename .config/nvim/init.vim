@@ -5,8 +5,6 @@
 :set shiftwidth=4
 :set tabstop=4
 :set hidden
-:set number
-:set relativenumber
 :set nospell " do not start with spell check
 :set title
 :set ignorecase " case insensitive search
@@ -44,7 +42,11 @@ map bd :bd<cr>
 :map <leader>gf :e <cfile><cr>
 
 " open tig 
-map <leader>g :Tig<cr>
+map <leader>tg :Tig<cr>
+
+" NERDCommenter
+map <leader>cc <Plug>NERDCommenterNested
+map <leader>ct <Plug>NERDCommenterToggle
 
 " tagbar mappings (https://github.com/preservim/tagbar/blob/master/doc/tagbar.txt)
 nmap <F6> :TagbarToggle<CR>
@@ -141,6 +143,11 @@ source ~/.config/nvim/plugins/vim-tig.vim
 " | Tagbar is a Vim plugin that provides an easy way to browse the tags of the
 " | current file and get an overview of its structure.
 source ~/.config/nvim/plugins/tagbar.vim
+" + NERD Commenter - https://github.com/preservim/nerdcommenter
+" | out and in comment for lines
+" | usage: [count]<leader>cc
+source ~/.config/nvim/plugins/nerd-commenter.vim
+
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim
