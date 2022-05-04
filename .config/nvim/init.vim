@@ -46,6 +46,9 @@ map bd :bd<cr>
 " open tig 
 map <leader>g :Tig<cr>
 
+" tagbar mappings (https://github.com/preservim/tagbar/blob/master/doc/tagbar.txt)
+nmap <F6> :TagbarToggle<CR>
+nmap <F7> :TagbarOpen j<CR>
 " search informations
 " Note: after a search (?"search term"<CR>) n: for next, shft+n for previous
 " Note: search and replace all: ?%s/"word to replace"/"replace term"/g
@@ -134,6 +137,10 @@ source ~/.config/nvim/plugins/vimtex.vim
 " + vim-tig - https://github.com/codeindulgence/vim-tig
 " | add tig support to nvim
 source ~/.config/nvim/plugins/vim-tig.vim
+" + tagbar - https://github.com/preservim/tagbar
+" | Tagbar is a Vim plugin that provides an easy way to browse the tags of the
+" | current file and get an overview of its structure.
+source ~/.config/nvim/plugins/tagbar.vim
 
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim
