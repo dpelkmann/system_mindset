@@ -1,6 +1,8 @@
 "------------------------------------------------------------------------------
 "- general settings
 "------------------------------------------------------------------------------
+:set number
+:set relativenumber
 :set expandtab
 :set shiftwidth=4
 :set tabstop=4
@@ -147,8 +149,12 @@ source ~/.config/nvim/plugins/tagbar.vim
 " | out and in comment for lines
 " | usage: [count]<leader>cc
 source ~/.config/nvim/plugins/nerd-commenter.vim
+" + indent blankline - https://github.com/lukas-reineke/indent-blankline.nvim
+" | This plugin adds indentation guides to all lines (including empty lines).
+source ~/.config/nvim/plugins/indent-blankline.vim
 
-
+" hop
+" telescope
 " vim-smooth-scroll - https://github.com/terryma/vim-smooth-scroll
 " targert.vim - https://github.com/wellle/targets.vim
 " vim-which-key - https://github.com/liuchengxu/vim-which-key
