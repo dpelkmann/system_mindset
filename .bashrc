@@ -63,7 +63,7 @@ alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
 # | If the name of an alias also referes to a program name, you can access this
 # | program a starting backslash.
 # +--+ ls
-alias ls='lsd --almost-all --human-readable --long --group-dirs first'
+alias ls='lsd --human-readable --long --group-dirs first'
 # +--+ nvim
 alias nv='nvim'
 # +--+ tmux
