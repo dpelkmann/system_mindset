@@ -74,6 +74,8 @@ alias tmks='tmux kill-session -t'
 alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
+# +--+ ranger
+alias rr='ranger'
 
 ###############################################################################
 # + Command Line Prompt
