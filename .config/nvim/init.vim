@@ -35,16 +35,42 @@ let g:ft_man_open_mode = "tab"
 " change prefix key
 let mapleader = "\<space>"
 
-" buffer management
-map bn :bn<cr>
-map bp :bp<cr>
+" + window management
+" +--+ split (v)ertical or hori(z)ontal
+map wv :vsplit <cr>
+map wz :split <cr>
+" +--+ move right
+map wl :wincmd l <cr>
+" +--+ move left
+map wh :wincmd h <cr>
+" +--+ move up
+map wk :wincmd k <cr>
+" +--+ move down
+map wj :wincmd j <cr>
+" +--+ close current window and keep buffer open
+map wc :close <cr>
+" +--+ close all other windows but leave all buffers open
+map wo :only <cr>
+
+" + buffer management
+" +--+ move active buffer right
+map bl :bn<cr>
+map bj :bn<cr>
+" +--+ move active buffer left
+map bh :bp<cr>
+map bk :bp<cr>
+" +--+ delete active buffer and close current window
 map bd :bd<cr>
 
 " create file if gf says file does not exist
-:map <leader>gf :e <cfile><cr>
+map <leader>gf :e <cfile><cr>
+map gb :e# <cr> 
 
 " open tig 
 map <leader>tg :Tig<cr>
+
+" toggle tagbar
+map <leader>tb :Tagbar<cr>
 
 " NERDCommenter
 map <leader>cc <Plug>NERDCommenterNested
