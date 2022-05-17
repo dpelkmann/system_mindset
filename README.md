@@ -273,3 +273,4 @@ flatpak install flathub com.giuspen.cherrytree
 ```bash
 flatpak install flathub com.spotify.Client
 ```
+
