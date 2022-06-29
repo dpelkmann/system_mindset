@@ -55,10 +55,10 @@ map wo :only <cr>
 " + buffer management
 " +--+ move active buffer right
 map bl :bn<cr>
-map bj :bn<cr>
+map bk :bn<cr>
 " +--+ move active buffer left
 map bh :bp<cr>
-map bk :bp<cr>
+map bj :bp<cr>
 " +--+ delete active buffer and close current window
 map bd :bd<cr>
 
@@ -76,6 +76,9 @@ map <leader>tb :Tagbar<cr>
 map <leader>cc <Plug>NERDCommenterNested
 map <leader>ct <Plug>NERDCommenterToggle
 
+" vimtex mappings (https://github.com/lervag/vimtex)
+nmap <F4> :VimtexView<CR>
+nmap <F5> :VimtexCompile<CR>
 " tagbar mappings (https://github.com/preservim/tagbar/blob/master/doc/tagbar.txt)
 nmap <F6> :TagbarToggle<CR>
 nmap <F7> :TagbarOpen j<CR>

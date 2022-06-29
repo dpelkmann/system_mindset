@@ -137,6 +137,13 @@ personal collection
 " Bash, C/C++/Objective-C, Markdown, LaTeX, Json, Javascript/Typescript, HTML, Python
 :CocInstall coc-sh coc-clangd coc-markdownlint coc-texlab coc-json coc-tsserver coc-html coc-pyright
 ```
+For the plugin Markdown Preview for (Neo)vim additional steps need to be done after installation:
+
+```vim
+:source %
+:PluginInstall
+:call mkdp#util#install()
+```
 
 ### ranger
 
