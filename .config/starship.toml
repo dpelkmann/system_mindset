@@ -13,8 +13,14 @@ add_newline = false
 #[$character](bold green)
 #"""
 
+#format = """
+#[┌─](bold green) $directory=> $username$hostname$git_branch$git_status$conda$python
+#[$character](bold green)
+#"""
+
 format = """
-[┌─](bold green) $directory=> $username$hostname$git_branch$git_status$conda$python
+[┌─](bold green) $directory
+[├─](bold green) $username$hostname$git_branch$git_status$conda$python
 [$character](bold green)
 """
 

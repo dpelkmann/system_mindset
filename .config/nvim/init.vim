@@ -4,8 +4,8 @@
 :set number
 :set relativenumber
 :set expandtab
-:set shiftwidth=4
-:set tabstop=4
+:set shiftwidth=2
+:set tabstop=2
 :set hidden
 :set nospell " do not start with spell check
 :set title
