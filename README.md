@@ -40,6 +40,12 @@ sm submodule update --recursive --remote
 
 ## Software the Configurations of this Repository are intended for
 
+### system fonts
+
+```bash
+sudo dnf install rsms-inter-fonts
+```
+
 ### lsd
 
 ```bash
