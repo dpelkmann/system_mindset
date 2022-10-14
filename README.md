@@ -171,6 +171,12 @@ sudo dnf install powerline tmux-powerline powerline-fonts
 sudo dnf install gnome-extensions-app
 ```
 
+### Gnome Extension Manager
+
+```bash
+flatpak install flathub com.mattjakeman.ExtensionManager
+```
+
 #### Extensions
 
 * https://extensions.gnome.org/extension/615/appindicator-support/
@@ -187,6 +193,7 @@ sudo dnf install gnome-extensions-app
 * https://extensions.gnome.org/extension/1595/nordvpn-connect/
 * https://extensions.gnome.org/extension/4415/fedora-linux-updates-indicator/
 * https://extensions.gnome.org/extension/4472/spotify-tray/
+* https://extensions.gnome.org/extension/1150/fedora-linux-updates-indicator/
 
 ### Gnome Tweaks
 
