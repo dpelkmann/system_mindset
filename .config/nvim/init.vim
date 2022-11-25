@@ -181,6 +181,9 @@ source ~/.config/nvim/plugins/nerd-commenter.vim
 " + indent blankline - https://github.com/lukas-reineke/indent-blankline.nvim
 " | This plugin adds indentation guides to all lines (including empty lines).
 source ~/.config/nvim/plugins/indent-blankline.vim
+" + Neoscroll - https://github.com/karb94/neoscroll.nvim 
+" | a smooth scrolling neovim plugin written in lua
+"source ~/.config/nvim/plugins/vim-smooth-scroll.vim
 
 " hop
 " telescope

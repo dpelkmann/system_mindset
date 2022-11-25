@@ -13,6 +13,9 @@ syntax enable
 " viewer method:
 " let g:vimtex_view_method = 'zathura'
 
+" No warning popup
+let g:vimtex_quickfix_open_on_warning = 0
+
 " Or with a generic interface:
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'

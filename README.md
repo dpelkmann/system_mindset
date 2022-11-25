@@ -213,7 +213,12 @@ sudo dnf install gnome-tweaks
 
 ### OneDrive Client for Linux
 
-[Manual Installation](https://github.com/abraunegg/onedrive/)
+* CLI-Tool
+```bash
+sudo dnf install onedrive
+```
+* [GUI-Tool}(https://github.com/bpozdena/OneDriveGUI)
+* [Manual Installation](https://github.com/abraunegg/onedrive/)
 
 ### Microsoft Edge
 
