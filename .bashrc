@@ -32,7 +32,7 @@ fi
 ###############################################################################
 # + Individual Exports
 # +--+ getting proper colors
-export TERM="xterm-256color"
+#export TERM="xterm-256color"
 # +--+ neovim as standard editor
 export EDITOR=nvim
 # +--+ set manpager
