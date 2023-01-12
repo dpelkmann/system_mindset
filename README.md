@@ -76,6 +76,12 @@ sudo dnf install tig
 sudo dnf install tmux
 ```
 
+### glances
+
+```bash
+sudo dnf install glances
+```
+
 ### kitty
 
 ```bash
