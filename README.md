@@ -1,6 +1,6 @@
 # System Mindset
 
-This repository stores and manages personal Linux configuration files for Fedora 36. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
+This repository stores and manages personal Linux configuration files for Fedora 37. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
 
 ## Setup
 
@@ -228,7 +228,8 @@ sudo dnf install onedrive
 
 ### Microsoft Edge
 
-[Manual Installation](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
+[Manual Installation (Stable)](https://www.microsoft.com/de-de/edge/download)
+[Manual Installation (Beta)](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
 
 ### Antidote
 
@@ -303,5 +304,15 @@ flatpak install flathub com.giuspen.cherrytree
 
 ```bash
 flatpak install flathub com.spotify.Client
+```
+
+## DNF Tuning
+
+The standard dnf settings can be improved to make it faster. Add to your /etc/dnf/dnf.conf:
+
+```conf
+fastestmirror=true
+deltarpm=true
+max_parallel_downloads=5
 ```
 
