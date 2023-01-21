@@ -229,9 +229,8 @@ sudo dnf install onedrive
 
 ### Microsoft Edge
 
-[Manual Installation (Stable)](https://www.microsoft.com/de-de/edge/download)
-
-[Manual Installation (Beta)](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
+* [Manual Installation (Stable)](https://www.microsoft.com/de-de/edge/download)
+* [Manual Installation (Beta)](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
 
 ### Antidote
 
