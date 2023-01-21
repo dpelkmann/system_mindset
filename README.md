@@ -108,10 +108,11 @@ git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ${sm_dir}nerd-fonts/
 bash ${sm_dir}nerd-fonts/install.sh
 ```
 
-### neofetch
+### fastfetch or neofetch
 
 ```bash
-sudo dnf install neofetch
+sudo dnf install fastfetch (prefered)
+sudo dnf install neofetch 
 ```
 
 ### nodejs
