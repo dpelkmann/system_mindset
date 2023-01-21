@@ -78,6 +78,12 @@ alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 alias rr='ranger'
 
 ###############################################################################
+# + Startup
+# | commands to display when starting a terminal session
+# + -- + fastfetch
+fastfetch
+
+###############################################################################
 # + Command Line Prompt
 # | uncomment the prompt you want
 # +--+ starship prompt configuration
