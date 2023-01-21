@@ -7,10 +7,10 @@ This repository stores and manages personal Linux configuration files for Fedora
 ```bash
 # change to home directory
 cd $HOME
-# create directory for system_mindset
+# create (temporary) directory for system_mindset
 sm_dir=$HOME/.config/sm/
 mkdir -p $sm_dir
-# create alias for system mindset
+# create (temporary) alias for system mindset
 alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
 # add Repository to .gitignore to prevent recursion problems and delete 
 # previous added lines
@@ -37,6 +37,27 @@ sm submodule update --init --recursive
 # update downloaded submodules
 sm submodule update --recursive --remote
 ```
+
+## Usage
+Keep in mind that your .bashrc need this sm entry:
+```bash
+###############################################################################
+# + system_mindset - Dotfile Management via git bare
+# | 1. source: https://www.youtube.com/watch?v=tBoLDpTWVOM
+# | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
+sm_dir=$HOME/.config/sm/
+alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
+# +--+ manually managed, so not show other files in $HOME 
+sm config --local status.showUntrackedFiles no
+# +--+ update modified, deleted and new files to commit
+alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" | sed "s/.*://")'
+# +--+ remove updated files 
+alias sm_unstage-changes='sm reset --mixed'
+# +--+ add tig support
+sm config tig.status-show-untracked-files false
+alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
+```
+So with `sm <cmd>` you can work as with `git <cmd>`. For example to pull use `sm pull` or to push use `sm push`. Add aliases witch fit you the best. I like the command line tool tig, so I use the `sm_tig` alias to use it for adding, staging and commiting my changes.
 
 ## Software the Configurations of this Repository are intended for
 
