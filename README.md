@@ -215,7 +215,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 
 * https://extensions.gnome.org/extension/615/appindicator-support/
 * https://github.com/hseliger/babar
-Original babar extension from fthx is not maintained anymore. Fork of hseliger is working. To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate the extension via the gnome extension manager.
+    * Original babar extension from fthx is not maintained anymore. Fork of hseliger is working. To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate the extension via the gnome extension manager.
 * https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
 * https://extensions.gnome.org/extension/4135/espresso/
 * https://extensions.gnome.org/extension/1732/gtk-title-bar/
