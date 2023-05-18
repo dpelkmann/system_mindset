@@ -75,7 +75,19 @@ alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 # +--+ ranger
-alias rr='ranger'
+rr_kitty_rename()
+{
+  if [ "$TERM" == "xterm-kitty" ];
+  then
+    kitty @ set-tab-title ranger
+    ranger
+  else
+    ranger
+  fi
+}
+alias rr=rr_kitty_rename
+# +--+ kitty tab rename
+alias ktr='kitty @ set-tab-title'
 
 ###############################################################################
 # + Startup
