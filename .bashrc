@@ -93,7 +93,7 @@ alias ktr='kitty @ set-tab-title'
 # + Startup
 # | commands to display when starting a terminal session
 # + -- + fastfetch
-fastfetch
+#fastfetch
 
 ###############################################################################
 # + Command Line Prompt
