@@ -283,6 +283,12 @@ sudo dnf install menulibre
 sudo dnf install dconf-editor
 ```
 
+inside dconf:
+
+```bash
+/org/gnome/settings-daemon/plugins/media-keys/volume-step => 1
+```
+
 ### Color Picker
 
 ```bash
