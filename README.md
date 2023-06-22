@@ -85,6 +85,12 @@ sudo dnf install bat
 sudo dnf install htop
 ```
 
+### btop
+
+```bash
+sudo dnf install btop
+```
+
 ### tig
 
 ```bash
