@@ -348,6 +348,13 @@ flatpak install flathub com.giuspen.cherrytree
 flatpak install flathub com.spotify.Client
 ```
 
+### OpenRGB
+
+```bash
+flatpak install flathub org.openrgb.OpenRGB
+# install udev (https://openrgb.org/udev)
+```
+
 ## DNF Tuning
 
 The standard dnf settings can be improved to make it faster. Add to your /etc/dnf/dnf.conf:
