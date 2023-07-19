@@ -94,6 +94,8 @@ alias ktr='kitty @ set-tab-title'
 # | commands to display when starting a terminal session
 # + -- + fastfetch
 #fastfetch
+# + -- + launch ssh-agent with its own "key space" - see man page
+eval "$(ssh-agent -s)" > /dev/null
 
 ###############################################################################
 # + Command Line Prompt
