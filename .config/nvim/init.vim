@@ -14,6 +14,7 @@
 :set encoding=UTF-8
 :set scrolloff=8
 :set sidescrolloff=8
+":set mouse=
 
 " style of spelling mistakes
 hi clear SpellBad

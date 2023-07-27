@@ -85,6 +85,12 @@ sudo dnf install bat
 sudo dnf install htop
 ```
 
+### btop
+
+```bash
+sudo dnf install btop
+```
+
 ### tig
 
 ```bash
@@ -340,6 +346,13 @@ flatpak install flathub com.giuspen.cherrytree
 
 ```bash
 flatpak install flathub com.spotify.Client
+```
+
+### OpenRGB
+
+```bash
+flatpak install flathub org.openrgb.OpenRGB
+# install udev (https://openrgb.org/udev)
 ```
 
 ## DNF Tuning
