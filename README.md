@@ -227,21 +227,12 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 #### Extensions
 
 * https://extensions.gnome.org/extension/615/appindicator-support/
-* https://github.com/hseliger/babar
-    * Original babar extension from fthx is not maintained anymore. Fork of hseliger is working. To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate the extension via the gnome extension manager.
+* https://github.com/fthx/babar
+    * Original babar extension from fthx is only functional maintained and not officially available in the gnome extension shop. Git-Repository code is woking (Gnome 45 / Fedora 39). To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate (after a reboot) the extension via the gnome extension manager.
 * https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
 * https://extensions.gnome.org/extension/4135/espresso/
-* https://extensions.gnome.org/extension/1732/gtk-title-bar/
 * https://extensions.gnome.org/extension/3737/hue-lights/
-* https://extensions.gnome.org/extension/7/removable-drive-menu/
 * https://extensions.gnome.org/extension/906/sound-output-device-chooser/
-* https://extensions.gnome.org/extension/3933/toggle-night-light/
-* https://extensions.gnome.org/extension/4472/spotify-tray/
-* https://extensions.gnome.org/extension/2890/tray-icons-reloaded/
-* https://extensions.gnome.org/extension/1595/nordvpn-connect/
-* https://extensions.gnome.org/extension/4415/fedora-linux-updates-indicator/
-* https://extensions.gnome.org/extension/4472/spotify-tray/
-* https://extensions.gnome.org/extension/1150/fedora-linux-updates-indicator/
 
 ### Gnome Tweaks
 
