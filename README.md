@@ -210,6 +210,14 @@ sudo dnf install starship
 sudo dnf install powerline tmux-powerline powerline-fonts
 ```
 
+### AusweisApp2
+
+eID client of the Federal Republic of Germany
+
+```bash
+sudo dnf install AusweisApp2
+```
+
 ## Additional Helpful Software for Fedora (Gnome Edition)
 
 ### Gnome Extensions App
@@ -230,6 +238,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 * https://github.com/fthx/babar
     * Original babar extension from fthx is only functional maintained and not officially available in the gnome extension shop. Git-Repository code is woking (Gnome 45 / Fedora 39). To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate (after a reboot) the extension via the gnome extension manager.
 * https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
+* https://extensions.gnome.org/extension/1460/vitals/
 * https://extensions.gnome.org/extension/4135/espresso/
 * https://extensions.gnome.org/extension/3737/hue-lights/
 * https://extensions.gnome.org/extension/906/sound-output-device-chooser/
