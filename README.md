@@ -237,6 +237,7 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 * https://extensions.gnome.org/extension/615/appindicator-support/
 * https://github.com/fthx/babar
     * Original babar extension from fthx is only functional maintained and not officially available in the gnome extension shop. Git-Repository code is woking (Gnome 45 / Fedora 39). To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate (after a reboot) the extension via the gnome extension manager.
+    * alternative (rewrite of babar): https://extensions.gnome.org/extension/6556/task-up/
 * https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
 * https://extensions.gnome.org/extension/1460/vitals/
 * https://extensions.gnome.org/extension/4135/espresso/
