@@ -133,6 +133,9 @@ source ~/.config/nvim/plugins/nord.vim
 source ~/.config/nvim/plugins/vscode.vim
 " + markdown-preview.nvim - https://github.com/iamcco/markdown-preview.nvim
 " | interactive markdown preview in a browser 
+source ~/.config/nvim/plugins/vim-markdown-toc.vim
+" + vim-markdown-toc - https://github.com/mzlogin/vim-markdown-toc
+" | Generate table of contents for markdown files
 source ~/.config/nvim/plugins/markdown-preview.vim
 " + coc.vim - https://github.com/neoclide/coc.nvim
 " | language server protocol server manager
