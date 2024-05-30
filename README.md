@@ -85,6 +85,11 @@ sudo dnf install bat
 sudo dnf install htop
 ```
 
+### nvtop
+
+```bash
+sudo dnf install nvtop
+```
 ### btop
 
 ```bash
