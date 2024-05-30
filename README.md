@@ -1,6 +1,59 @@
 # System Mindset
 
-This repository stores and manages personal Linux configuration files for Fedora 39. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM).
+This repository stores and manages personal and system configurations for Fedora 40. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM). Some system configurations are inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide).
+
+
+<!-- vim-markdown-toc GitLab -->
+
+* [Setup](#setup)
+* [Usage](#usage)
+* [Software the Configurations of this Repository are intended for](#software-the-configurations-of-this-repository-are-intended-for)
+    * [system fonts](#system-fonts)
+    * [lsd](#lsd)
+    * [bat](#bat)
+    * [htop](#htop)
+    * [nvtop](#nvtop)
+    * [btop](#btop)
+    * [tig](#tig)
+    * [tmux](#tmux)
+    * [glances](#glances)
+    * [kitty](#kitty)
+    * [fastfetch or neofetch](#fastfetch-or-neofetch)
+    * [nodejs](#nodejs)
+    * [yarn](#yarn)
+    * [neovim](#neovim)
+    * [ranger](#ranger)
+    * [starship prompt](#starship-prompt)
+    * [powerline prompt](#powerline-prompt)
+    * [AusweisApp2](#ausweisapp2)
+* [Additional Helpful Software for Fedora (Gnome Edition)](#additional-helpful-software-for-fedora-gnome-edition)
+    * [Gnome Extensions App](#gnome-extensions-app)
+    * [Gnome Extension Manager](#gnome-extension-manager)
+        * [Extensions](#extensions)
+    * [Gnome Tweaks](#gnome-tweaks)
+    * [Cryptomator](#cryptomator)
+    * [OneDrive Client for Linux](#onedrive-client-for-linux)
+    * [Microsoft Edge](#microsoft-edge)
+    * [Antidote](#antidote)
+    * [keepassxc](#keepassxc)
+    * [menulibre](#menulibre)
+    * [dconf-editor](#dconf-editor)
+    * [Color Picker](#color-picker)
+    * [DDC Control](#ddc-control)
+    * [solaar](#solaar)
+    * [inkscape](#inkscape)
+    * [trash-cli](#trash-cli)
+    * [zathura](#zathura)
+    * [flathub](#flathub)
+    * [cherrytree](#cherrytree)
+    * [Spotify](#spotify)
+    * [OpenRGB](#openrgb)
+* [DNF Tuning / Faster Updated](#dnf-tuning-faster-updated)
+* [Firmware Update](#firmware-update)
+* [Media Codecs](#media-codecs)
+* [H/W Video Acceleration](#hw-video-acceleration)
+
+<!-- vim-markdown-toc -->
 
 ## Setup
 
@@ -361,13 +414,46 @@ flatpak install flathub org.openrgb.OpenRGB
 # install udev (https://openrgb.org/udev)
 ```
 
-## DNF Tuning
+## DNF Tuning / Faster Updated
 
-The standard dnf settings can be improved to make it faster. Add to your /etc/dnf/dnf.conf:
+The standard dnf settings can be improved to make it faster (inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide)). Add to your /etc/dnf/dnf.conf:
 
 ```conf
+[main]
+gpgcheck=1
+installonly_limit=3
+clean_requirements_on_remove=True
+best=False
 fastestmirror=true
 deltarpm=true
-max_parallel_downloads=5
+max_parallel_downloads=10
 ```
 
+## Firmware Update
+
+If your system supports firware update through lvfs, update it.
+
+```bash
+fwupdmgr get-devices 
+fwupdmgr refresh --force 
+fwupdmgr get-updates 
+fwupdmgr update
+```
+
+## Media Codecs
+
+``` bash
+dnf groupupdate 'core' 'multimedia' 'sound-and-video' --setopt='install_weak_deps=False' --exclude='PackageKit-gstreamer-plugin' --allowerasing && sync
+dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing
+dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg
+dnf install lame\* --exclude=lame-devel
+dnf group upgrade --with-optional Multimedia
+```
+
+## H/W Video Acceleration
+
+```bash
+dnf install ffmpeg ffmpeg-libs libva libva-utils
+dnf config-manager --set-enabled fedora-cisco-openh264
+# enable OpenH264 plugin in firefox (about:addons => Plugins)
+```
