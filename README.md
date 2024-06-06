@@ -48,6 +48,7 @@ This repository stores and manages personal and system configurations for Fedora
     * [cherrytree](#cherrytree)
     * [Spotify](#spotify)
     * [OpenRGB](#openrgb)
+    * [MQTT Explorer](#mqtt-explorer)
 * [DNF Tuning / Faster Updated](#dnf-tuning-faster-updated)
 * [Firmware Update](#firmware-update)
 * [Media Codecs](#media-codecs)
@@ -413,6 +414,10 @@ flatpak install flathub com.spotify.Client
 flatpak install flathub org.openrgb.OpenRGB
 # install udev (https://openrgb.org/udev)
 ```
+
+### MQTT Explorer
+
+[web page](https://mqtt-explorer.com/)
 
 ## DNF Tuning / Faster Updated
 
