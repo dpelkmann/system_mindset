@@ -29,7 +29,6 @@ hi SpellCap cterm=underline ctermfg=203 guifg=#ff5f5f
 " + nvim man open mode
 " | arguments: horz, vert, tab
 let g:ft_man_open_mode = "tab"
-
 "------------------------------------------------------------------------------
 "- key mappings 
 "------------------------------------------------------------------------------
@@ -49,7 +48,7 @@ map wk :wincmd k <cr>
 " +--+ move down
 map wj :wincmd j <cr>
 " +--+ close current window and keep buffer open
-map wc :close <cr>
+map wd :close <cr>
 " +--+ close all other windows but leave all buffers open
 map wo :only <cr>
 
@@ -65,7 +64,16 @@ map bd :bd<cr>
 
 " create file if gf says file does not exist
 map <leader>gf :e <cfile><cr>
-map gb :e# <cr> 
+map gb :e# <cr>
+
+" FZF
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>F :AllFiles<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>h :History<cr>
+nnoremap <leader>c :Rg<cr>
+nnoremap <leader>S :Rg<space>
+nnoremap <leader>gb :GBranches<cr>
 
 " open tig 
 map <leader>tg :Tig<cr>
