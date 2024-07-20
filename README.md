@@ -7,48 +7,12 @@ This repository stores and manages personal and system configurations for Fedora
 
 * [Setup](#setup)
 * [Usage](#usage)
-* [Software the Configurations of this Repository are intended for](#software-the-configurations-of-this-repository-are-intended-for)
-    * [system fonts](#system-fonts)
-    * [lsd](#lsd)
-    * [bat](#bat)
-    * [htop](#htop)
-    * [nvtop](#nvtop)
-    * [btop](#btop)
-    * [tig](#tig)
-    * [tmux](#tmux)
-    * [glances](#glances)
-    * [kitty](#kitty)
-    * [fastfetch or neofetch](#fastfetch-or-neofetch)
-    * [nodejs](#nodejs)
-    * [yarn](#yarn)
-    * [neovim](#neovim)
-    * [ranger](#ranger)
-    * [starship prompt](#starship-prompt)
-    * [powerline prompt](#powerline-prompt)
-    * [AusweisApp2](#ausweisapp2)
-* [Additional Helpful Software for Fedora (Gnome Edition)](#additional-helpful-software-for-fedora-gnome-edition)
-    * [Gnome Extensions App](#gnome-extensions-app)
-    * [Gnome Extension Manager](#gnome-extension-manager)
-        * [Extensions](#extensions)
-    * [Gnome Tweaks](#gnome-tweaks)
-    * [Cryptomator](#cryptomator)
-    * [OneDrive Client for Linux](#onedrive-client-for-linux)
-    * [Microsoft Edge](#microsoft-edge)
-    * [Antidote](#antidote)
-    * [keepassxc](#keepassxc)
-    * [menulibre](#menulibre)
-    * [dconf-editor](#dconf-editor)
-    * [Color Picker](#color-picker)
-    * [DDC Control](#ddc-control)
-    * [solaar](#solaar)
-    * [inkscape](#inkscape)
-    * [trash-cli](#trash-cli)
-    * [zathura](#zathura)
-    * [flathub](#flathub)
-    * [cherrytree](#cherrytree)
-    * [Spotify](#spotify)
-    * [OpenRGB](#openrgb)
-    * [MQTT Explorer](#mqtt-explorer)
+* [Software](#software)
+    * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
+    * [Flathub](#flathub)
+    * [Gnome related Software](#gnome-related-software)
+    * [Application Programs](#application-programs)
+    * [Updates](#updates)
 * [DNF Tuning / Faster Updated](#dnf-tuning-faster-updated)
 * [Firmware Update](#firmware-update)
 * [Media Codecs](#media-codecs)
@@ -93,7 +57,9 @@ sm submodule update --recursive --remote
 ```
 
 ## Usage
+
 Keep in mind that your .bashrc need this sm entry:
+
 ```bash
 ###############################################################################
 # + system_mindset - Dotfile Management via git bare
@@ -111,313 +77,180 @@ alias sm_unstage-changes='sm reset --mixed'
 sm config tig.status-show-untracked-files false
 alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
 ```
+
 So with `sm <cmd>` you can work as with `git <cmd>`. For example to pull use `sm pull` or to push use `sm push`. Add aliases witch fit you the best. I like the command line tool tig, so I use the `sm_tig` alias to use it for adding, staging and commiting my changes.
 
-## Software the Configurations of this Repository are intended for
+## Software
 
-### system fonts
-
-```bash
-sudo dnf install rsms-inter-fonts
-```
-
-### lsd
+### Terminals, Fonts and Tools
 
 ```bash
-sudo dnf install lsd
-```
-
-### bat
-
-```bash
-sudo dnf install bat
-```
-
-### htop
-
-```bash
-sudo dnf install htop
-```
-
-### nvtop
-
-```bash
-sudo dnf install nvtop
-```
-### btop
-
-```bash
-sudo dnf install btop
-```
-
-### tig
-
-```bash
-sudo dnf install tig
-```
-
-### tmux
-
-```bash
-sudo dnf install tmux
-```
-
-### glances
-
-```bash
-sudo dnf install glances
-```
-
-### kitty
-
-```bash
+# + Terminal
+# +--+ kitty (gpu based terminal: https://github.com/kovidgoyal/kitty)
 sudo dnf install kitty
-```
-
-JetBrainsMono (https://github.com/JetBrains/JetBrainsMono) in kitty config required:
-
-```bash
-sudo dnf install jetbrains-mono-fonts-all
-```
-
-To be able to display the appropriate icons in the terminal, the package nerd-fonts is necessary.
-
-```bash
-# change to home directory
+# + Fonts
+# +--+ rsms inter font (for system)
+sudo dnf install rsms-inter-fonts
+# +--+ jetbriansmono font for kitty (font for developers: https://github.com/JetBrains/JetBrainsMono)
+sudo dnf dnf install jetbrains-mono-fonts-all
+# +--+ nerd fonts for icons in terminal (https://github.com/ryanoasis/nerd-fonts)
+# |  +--+ change to home directory
 cd $HOME
-# create directory for system_mindset
+# |  +--+ create directory for system_mindset
 sm_dir=$HOME/.config/sm/
 mkdir -p $sm_dir
-# clone nerd-fonts repository
+# |  +--+ clone nerd-fonts repository
 git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ${sm_dir}nerd-fonts/
-# install nerd-fonts
+# |  +--+ install nerd-fonts
 bash ${sm_dir}nerd-fonts/install.sh
-```
-
-### fastfetch or neofetch
-
-```bash
-sudo dnf install fastfetch (prefered)
-sudo dnf install neofetch 
-```
-
-### nodejs
-
-```bash
-sudo dnf install nodejs
-```
-
-### yarn
-
-```bash
-npm install yarn
-```
-
-### neovim
-
-```bash
+# + Tools
+# +--+ lsd (LSDeluxe: https://github.com/lsd-rs/lsd)
+sudo dnf install lsd
+# +--+ bat (a cat clone with wings: https://github.com/sharkdp/bat)
+sudo dnf install bat
+# +--+ htop (interactive process viewer: https://github.com/htop-dev/htop)
+sudo dnf install htop
+# +--+ btop (resource monitor: https://github.com/aristocratos/btop)
+sudo dnf install btop
+# +--+ glances (A top/htop alternative: https://github.com/nicolargo/glances)
+sudo dnf install glances
+# +--+ nvtop (Neat Videocard TOP: https://github.com/Syllo/nvtop)
+sudo dnf install nvtop
+# +--+ tig (Text-mode interface for git: https://github.com/jonas/tig)
+sudo dnf install tig
+# +--+ tmux (terminal multiplexer: https://github.com/tmux/tmux)
+sudo dnf install tmux
+# +--+ fastfetch (fast system information tool: https://github.com/fastfetch-cli/fastfetch)
+sudo dnf install fastfetch
+# +--+ neovim (Vim-fork focused on extensibility and usability: https://github.com/neovim/neovim)
 sudo dnf install neovim
-```
-
-For the plugin Conquer of Completion (coc.nvim) several extensions need to be installed. To list, search und manage them, coc-marketplace can be used.
-
-```vim
-" install coc-marketplace
-:CocInstall coc-marketplace
-" list all available extensions
-:CocList marketplace
-" search all fitting extensions
-:CocList marketplace <pattern>
-```
-
-personal collection
-
-```vim
-" Bash, C/C++/Objective-C, Markdown, LaTeX, Json, Javascript/Typescript, HTML, Python
-:CocInstall coc-sh coc-clangd coc-markdownlint coc-texlab coc-json coc-tsserver coc-html coc-pyright
-```
-For the plugin __Markdown Preview for (Neo)vim__ additional steps need to be done after installation:
-
-```vim
-:source %
-:PluginInstall
-:call mkdp#util#install()
-```
-
-if this is not working, try this:
-
-```bash
-cd ~/.local/share/nvim/site/plugins/markdown-preview.nvim/app/
-./install.sh
-```
-
-### ranger
-
-```bash
+# |  +--+ nodejs for neovim plugins (needs regular update!)
+sudo dnf install nodejs
+# |  |  +--+ yarn for noevim plugins
+npm install yarn
+# |  +--+ install plugins
+nvim --headless +PlugInstall +qa
+# |  +--+ install coc-marketplace plugin (to get languages)
+nvim --headless +CocInstall coc-marketplace +qa
+# |  |  +--+ install languages
+nvim +CocInstall coc-sh coc-clangd coc-markdownlint coc-texlab coc-json coc-tsserver coc-html coc-pyright
+# |  |  +--+ search for language
+nvim +CocList marketplace <pattern>
+# |  +--+ markdown preview for neovim needs manual installation
+$HOME/.local/share/nvim/site/plugins/markdown-preview.nvim/app/install.sh
+# +--+ ranger (terminal filemanager: https://github.com/ranger/ranger)
 sudo dnf install ranger
-```
-
-### starship prompt
-
-```bash
+# +--+ starship (terminal prompt)
 sudo dnf install starship
-```
-
-### powerline prompt
-
-```bash
+# +--+ powerline (terminal prompt)
 sudo dnf install powerline tmux-powerline powerline-fonts
 ```
 
-### AusweisApp2
-
-eID client of the Federal Republic of Germany
+### Flathub
 
 ```bash
-sudo dnf install AusweisApp2
-```
-
-## Additional Helpful Software for Fedora (Gnome Edition)
-
-### Gnome Extensions App
-
-```bash
-sudo dnf install gnome-extensions-app
-```
-
-### Gnome Extension Manager
-
-```bash
-flatpak install flathub com.mattjakeman.ExtensionManager
-```
-
-#### Extensions
-
-* https://extensions.gnome.org/extension/615/appindicator-support/
-* https://github.com/fthx/babar
-    * Original babar extension from fthx is only functional maintained and not officially available in the gnome extension shop. Git-Repository code is woking (Gnome 45 / Fedora 39). To add the extension clone the repository to *~/.local/share/gnome-shell/extensions/* and change the folder name to *uuid* attribute of the *metadata.json* file. Finally, you can activate (after a reboot) the extension via the gnome extension manager.
-    * alternative (rewrite of babar): https://extensions.gnome.org/extension/6556/task-up/
-* https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
-* https://extensions.gnome.org/extension/1460/vitals/
-* https://extensions.gnome.org/extension/4135/espresso/
-* https://extensions.gnome.org/extension/3737/hue-lights/
-* https://extensions.gnome.org/extension/906/sound-output-device-chooser/
-
-### Gnome Tweaks
-
-```bash
-sudo dnf install gnome-tweaks
-```
-
-### Cryptomator
-
-[Manual Installation](https://github.com/cryptomator/cryptomator/releases)
-
-### OneDrive Client for Linux
-
-* CLI-Tool
-```bash
-sudo dnf install onedrive
-```
-* [GUI-Tool](https://github.com/bpozdena/OneDriveGUI)
-* [Manual Installation](https://github.com/abraunegg/onedrive/)
-
-### Microsoft Edge
-
-* [Manual Installation (Stable)](https://www.microsoft.com/de-de/edge/download)
-* [Manual Installation (Beta)](https://www.microsoftedgeinsider.com/en-us/download?platform=linux-rpm)
-
-### Antidote
-
-[Manual Installation](https://www.antidote.info/en/)
-
-### keepassxc
-
-```bash
-sudo dnf install keepassxc
-```
-
-### menulibre
-
-```bash
-sudo dnf install menulibre
-```
-
-### dconf-editor
-
-```bash
-sudo dnf install dconf-editor
-```
-
-inside dconf:
-
-```bash
-/org/gnome/settings-daemon/plugins/media-keys/volume-step => 1
-```
-
-### Color Picker
-
-```bash
-sudo dnf install gcolor3
-```
-
-### DDC Control
-```bash
-sudo dnf install ccdcontrol-gtk
-```
-
-### solaar
-
-```bash
-sudo dnf install solaar
-```
-
-### inkscape
-
-```bash
-sudo dnf install inkscape
-```
-
-### trash-cli
-
-```bash
-sudo dnf install trash-cli
-```
-
-### zathura
-
-```bash
-sudo dnf install zathura zathura-plugins-all 
-```
-
-### flathub
-
-```bash
+# + activate flathub
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
-### cherrytree
+### Gnome related Software
 
 ```bash
+# + MenuLibre (advanced menu editor: https://github.com/bluesabre/menulibre)
+sudo dnf install menulibre
+# + dconf-editor (A GSettings editor for GNOME: https://gitlab.gnome.org/GNOME/dconf-editor)
+# | 1. /org/gnome/settings-daemon/plugins/media-keys/volume-step => 1
+sudo dnf install dconf-editor
+# + Gnome Tweaks (https://gitlab.gnome.org/GNOME/gnome-tweaks)
+sudo dnf install gnome-tweaks
+# + Gnome Extension Manager (https://github.com/mjakeman/extension-manager)
+flatpak install flathub com.mattjakeman.ExtensionManager
+# + Gnome Extensions
+# +--+ AppIndicator and KStatusNotifierItem Support
+firefox https://extensions.gnome.org/extension/615/appindicator-support/
+# +--+ Bing Wallpaper
+firefox https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
+# +--+ Hue Lights
+firefox https://extensions.gnome.org/extension/3737/hue-lights/
+# +--+ Espresso
+firefox https://extensions.gnome.org/extension/4135/espresso/
+# +--+ Vitals
+firefox https://extensions.gnome.org/extension/1460/vitals/
+# +--+ Brightness control using ddcutil
+firefox https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
+# +--+ No overview at start-up
+firefox https://extensions.gnome.org/extension/4099/no-overview/
+# +--+ Tiling Shell
+firefox https://extensions.gnome.org/extension/7065/tiling-shell/
+```
+
+### Application Programs
+
+```bash
+# + Application Programs
+# +--+ AusweisApp2 (eID client of the Federal Republic of Germany)
+sudo dnf install AusweisApp2
+# +--+ Cryptomator (https://github.com/cryptomator)
+flatpak install flathub org.cryptomator.Cryptomator
+# +--+ OneDrive CLI-Tool (https://github.com/abraunegg/onedrive)
+sudo dnf install onedrive
+# |  +--+ OneDrive GUI (https://github.com/bpozdena/OneDriveGUI/releases/latest/)
+# |     | 1. Download newest AppImage
+# |     | 2. Create or update OneDriveGUI Application entry in Menu Editor with AppImage
+# |     | 3. Add image to startup application in Gnome Tweaks
+mkdir -p $HOME/Software/OneDriveGUI/
+cd $HOME/Software/OneDriveGUI/
+wget https://github.com/bpozdena/OneDriveGUI/releases/download/v1.0.3/OneDriveGUI-1.0.3-x86_64.AppImage
+chmod +x ./OneDriveGUI*
+cd
+# +--+ Microsoft Edge Browser
+flatpak install flathub com.microsoft.Edge
+# +--+ KeePassXC (https://github.com/keepassxreboot/keepassxc)
+sudo dnf install keepassxc
+# + Color Picker
+sudo dnf install gcolor3
+# + DDC Control
+sudo dnf install ccdcontrol-gtk
+# + solaar (Linux device manager for Logitech devices: https://github.com/pwr-Solaar/Solaar)
+# | 1. Add to startup applications in Gnome Tweaks
+sudo dnf install solaar
+# + inkscape
+sudo dnf install inkscape
+# + cherrytree
 flatpak install flathub com.giuspen.cherrytree
-```
-
-### Spotify
-
-```bash
+# + Spotify
 flatpak install flathub com.spotify.Client
+# + OpenRGB
+# | install udev (https://openrgb.org/udev)
+flatpak install flathub org.openrgb.OpenRGB
+# + MQTT Explorer (https://github.com/thomasnordquist/MQTT-Explorer)
+# | 1. Download newest AppImage (https://github.com/thomasnordquist/MQTT-Explorer/releases/latest/)
+# | 2. Create or update MQTT-Explorer Application entry in Menu Editor with AppImage
+# | 3. Add image to startup application in Gnome Tweaks
+mkdir -p $HOME/Software/mqtt-explorer/
+cd $HOME/Software/mqtt-explorer/
+wget https://github.com/thomasnordquist/MQTT-Explorer/releases/download/v0.4.0-beta.6/MQTT-Explorer-0.4.0-beta.6.AppImage
+chmod +x ./MQTT-Explorer*
+cd
 ```
 
-### OpenRGB
+### Updates
 
 ```bash
-flatpak install flathub org.openrgb.OpenRGB
-# install udev (https://openrgb.org/udev)
+# + system
+dnf update --refresh
+# +--+ nodejs
+npm update -g npm
+npn update
+npm audit
+# +--+ neovim
+# |  +--+ update Plug
+nvim --headless +PlugUpgrade +qa
+# |  +--+ update plugins
+nvim --headless +PlugUpdate +qa
+# |  +--+ update coc-modules
+nvim +CocUpdate
 ```
-
-### MQTT Explorer
-
-[web page](https://mqtt-explorer.com/)
 
 ## DNF Tuning / Faster Updated
 
@@ -428,8 +261,9 @@ The standard dnf settings can be improved to make it faster (inspired by [devang
 gpgcheck=1
 installonly_limit=3
 clean_requirements_on_remove=True
+skip_if_unavailable=True
 best=False
-fastestmirror=true
+fastestmirror=0
 deltarpm=true
 max_parallel_downloads=10
 ```
