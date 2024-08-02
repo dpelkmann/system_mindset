@@ -240,8 +240,8 @@ cd
 # + system
 dnf update --refresh
 # +--+ nodejs
-npm update -g npm
-npn update
+npm install -g npm
+npm update
 npm audit
 # +--+ neovim
 # |  +--+ update Plug
