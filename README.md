@@ -2,17 +2,16 @@
 
 This repository stores and manages personal and system configurations for Fedora 40. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM). Some system configurations are inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide).
 
-
 <!-- vim-markdown-toc GitLab -->
 
 * [Setup](#setup)
 * [Usage](#usage)
 * [Software](#software)
-    * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
-    * [Flathub](#flathub)
-    * [Gnome related Software](#gnome-related-software)
-    * [Application Programs](#application-programs)
-    * [Updates](#updates)
+  * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
+  * [Flathub](#flathub)
+  * [Gnome related Software](#gnome-related-software)
+  * [Application Programs](#application-programs)
+  * [Updates](#updates)
 * [DNF Tuning / Faster Updated](#dnf-tuning-faster-updated)
 * [Firmware Update](#firmware-update)
 * [Media Codecs](#media-codecs)
@@ -123,21 +122,8 @@ sudo dnf install tmux
 # +--+ fastfetch (fast system information tool: https://github.com/fastfetch-cli/fastfetch)
 sudo dnf install fastfetch
 # +--+ neovim (Vim-fork focused on extensibility and usability: https://github.com/neovim/neovim)
+#    | more is not necessary, because lazyvim is used (https://www.lazyvim.org/)
 sudo dnf install neovim
-# |  +--+ nodejs for neovim plugins (needs regular update!)
-sudo dnf install nodejs
-# |  |  +--+ yarn for noevim plugins
-npm install yarn
-# |  +--+ install plugins
-nvim --headless +PlugInstall +qa
-# |  +--+ install coc-marketplace plugin (to get languages)
-nvim --headless +CocInstall coc-marketplace +qa
-# |  |  +--+ install languages
-nvim +CocInstall coc-sh coc-clangd coc-markdownlint coc-texlab coc-json coc-tsserver coc-html coc-pyright
-# |  |  +--+ search for language
-nvim +CocList marketplace <pattern>
-# |  +--+ markdown preview for neovim needs manual installation
-$HOME/.local/share/nvim/site/plugins/markdown-preview.nvim/app/install.sh
 # +--+ ranger (terminal filemanager: https://github.com/ranger/ranger)
 sudo dnf install ranger
 # +--+ starship (terminal prompt)
