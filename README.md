@@ -78,7 +78,7 @@ sm config tig.status-show-untracked-files false
 alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
 ```
 
-So with `sm <cmd>` you can work as with `git <cmd>`. For example to pull use `sm pull` or to push use `sm push`. Add aliases witch fit you the best. I like the command line tool tig, so I use the `sm_tig` alias to use it for adding, staging and commiting my changes.
+You can therefore work with `sm <cmd>` in the same way as with `git <cmd>`. For example, use `sm pull` to pull or `sm push` to push. Add aliases that suit you best. I like the command line tool tig, so I use the alias `sm_tig` to use it for adding, deploying and committing my changes.
 
 ## Software
 
