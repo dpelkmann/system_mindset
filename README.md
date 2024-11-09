@@ -8,7 +8,6 @@ This repository stores and manages personal and system configurations for Fedora
 * [Usage](#usage)
 * [Software](#software)
   * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
-  * [Flathub](#flathub)
   * [Gnome related Software](#gnome-related-software)
   * [Application Programs](#application-programs)
   * [Updates](#updates)
@@ -82,62 +81,6 @@ You can therefore work with `sm <cmd>` in the same way as with `git <cmd>`. For 
 ## Software
 
 ### Terminals, Fonts and Tools
-
-```bash
-# + Terminal
-# +--+ kitty (gpu based terminal: https://github.com/kovidgoyal/kitty)
-sudo dnf install kitty
-# + Fonts
-# +--+ rsms inter font (for system)
-sudo dnf install rsms-inter-fonts
-# +--+ jetbriansmono font for kitty (font for developers: https://github.com/JetBrains/JetBrainsMono)
-sudo dnf dnf install jetbrains-mono-fonts-all
-# +--+ nerd fonts for icons in terminal (https://github.com/ryanoasis/nerd-fonts)
-# |  +--+ change to home directory
-cd $HOME
-# |  +--+ create directory for system_mindset
-sm_dir=$HOME/.config/sm/
-mkdir -p $sm_dir
-# |  +--+ clone nerd-fonts repository
-git clone --depth 1 git@github.com:ryanoasis/nerd-fonts.git ${sm_dir}nerd-fonts/
-# |  +--+ install nerd-fonts
-bash ${sm_dir}nerd-fonts/install.sh
-# + Tools
-# +--+ lsd (LSDeluxe: https://github.com/lsd-rs/lsd)
-sudo dnf install lsd
-# +--+ bat (a cat clone with wings: https://github.com/sharkdp/bat)
-sudo dnf install bat
-# +--+ htop (interactive process viewer: https://github.com/htop-dev/htop)
-sudo dnf install htop
-# +--+ btop (resource monitor: https://github.com/aristocratos/btop)
-sudo dnf install btop
-# +--+ glances (A top/htop alternative: https://github.com/nicolargo/glances)
-sudo dnf install glances
-# +--+ nvtop (Neat Videocard TOP: https://github.com/Syllo/nvtop)
-sudo dnf install nvtop
-# +--+ tig (Text-mode interface for git: https://github.com/jonas/tig)
-sudo dnf install tig
-# +--+ tmux (terminal multiplexer: https://github.com/tmux/tmux)
-sudo dnf install tmux
-# +--+ fastfetch (fast system information tool: https://github.com/fastfetch-cli/fastfetch)
-sudo dnf install fastfetch
-# +--+ neovim (Vim-fork focused on extensibility and usability: https://github.com/neovim/neovim)
-#    | more is not necessary, because lazyvim is used (https://www.lazyvim.org/)
-sudo dnf install neovim
-# +--+ ranger (terminal filemanager: https://github.com/ranger/ranger)
-sudo dnf install ranger
-# +--+ starship (terminal prompt)
-sudo dnf install starship
-# +--+ powerline (terminal prompt)
-sudo dnf install powerline tmux-powerline powerline-fonts
-```
-
-### Flathub
-
-```bash
-# + activate flathub
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-```
 
 ### Gnome related Software
 
