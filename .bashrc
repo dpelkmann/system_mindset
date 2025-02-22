@@ -2,13 +2,12 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 
 export PATH
@@ -18,15 +17,15 @@ export PATH
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
-	for rc in ~/.bashrc.d/*; do
-		if [ -f "$rc" ]; then
-			. "$rc"
-		fi
-	done
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
 fi
 
 ###############################################################################
-### Adjustments by David Pelkmann 
+### Adjustments by David Pelkmann
 ###############################################################################
 
 ###############################################################################
@@ -48,11 +47,11 @@ export MANPAGER="nvim +Man!"
 # | 2. source: https://www.atlassian.com/git/tutorials/dotfiles
 sm_dir=$HOME/.config/sm/
 alias sm='/usr/bin/git --git-dir=${sm_dir}system_mindset/ --work-tree=$HOME'
-# +--+ manually managed, so not show other files in $HOME 
+# +--+ manually managed, so not show other files in $HOME
 sm config --local status.showUntrackedFiles no
 # +--+ update modified, deleted and new files to commit
 alias sm_stage-changes='sm add $(sm status | grep "modified\|deleted\|new file" | sed "s/.*://")'
-# +--+ remove updated files 
+# +--+ remove updated files
 alias sm_unstage-changes='sm reset --mixed'
 # +--+ add tig support
 sm config tig.status-show-untracked-files false
@@ -75,10 +74,8 @@ alias pymux='/home/dpelkmann/anaconda3/envs/pymux/bin/pymux'
 alias ptpython='/home/dpelkmann/anaconda3/envs/ptpython/bin/ptpython'
 alias pyvim='/home/dpelkmann/anaconda3/envs/pyvim/bin/pyvim'
 # +--+ ranger
-rr_kitty_rename()
-{
-  if [ "$TERM" == "xterm-kitty" ];
-  then
+rr_kitty_rename() {
+  if [ "$TERM" == "xterm-kitty" ]; then
     kitty @ set-tab-title ranger
     ranger
   else
@@ -95,7 +92,7 @@ alias ktr='kitty @ set-tab-title'
 # + -- + fastfetch
 #fastfetch
 # + -- + launch ssh-agent with its own "key space" - see man page
-eval "$(ssh-agent -s)" > /dev/null
+eval "$(ssh-agent -s)" >/dev/null
 
 ###############################################################################
 # + Command Line Prompt
@@ -114,20 +111,15 @@ eval "$(starship init bash)"
 
 unset rc
 
-### conda adjustments ###
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/dpelkmann/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/dpelkmann/.local/bin/micromamba'
+export MAMBA_ROOT_PREFIX='/home/dpelkmann/micromamba'
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__mamba_setup"
 else
-    if [ -f "/home/dpelkmann/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/dpelkmann/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/dpelkmann/anaconda3/bin:$PATH"
-    fi
+  alias micromamba="$MAMBA_EXE" # Fallback on help from micromamba activate
 fi
-unset __conda_setup
-# <<< conda initialize <<<
-
+unset __mamba_setup
+# <<< mamba initialize <<<
