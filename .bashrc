@@ -65,6 +65,8 @@ alias sm_tig='GIT_DIR=${sm_dir}system_mindset/ GIT_WORK_TREE=$HOME tig'
 alias ls='lsd --human-readable --long --group-dirs first'
 # +--+ nvim
 alias nv='nvim'
+# +--+ micromamba
+alias mm='micromamba'
 # +--+ tmux
 alias tmls='tmux list-sessions'
 alias tmas='tmux attach-session -t'
