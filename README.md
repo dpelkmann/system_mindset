@@ -139,7 +139,7 @@ sudo dnf install onedrive
 # |     | 3. Add image to startup application in Gnome Tweaks
 mkdir -p $HOME/Software/OneDriveGUI/
 cd $HOME/Software/OneDriveGUI/
-wget https://github.com/bpozdena/OneDriveGUI/releases/download/v1.0.3/OneDriveGUI-1.0.3-x86_64.AppImage
+wget https://github.com/bpozdena/OneDriveGUI/releases/download/v1.1.1a/OneDriveGUI-1.1.1-x86_64.AppImage
 chmod +x ./OneDriveGUI*
 cd
 # +--+ LibreWolf
