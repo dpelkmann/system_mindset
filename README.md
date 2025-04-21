@@ -83,6 +83,18 @@ You can therefore work with `sm <cmd>` in the same way as with `git <cmd>`. For 
 ### Terminals, Fonts and Tools
 
 ```bash
+# + Kitty
+dnf install kitty
+# + lsd
+dnf install lsd
+# + htop
+dnf install htop
+# + tig
+dnf install tig
+# + bat
+dnf install bat
+# + fastfetch
+dnf install fastfetch
 # + Starship (https://starship.rs/)
 sudo curl -sS https://starship.rs/install.sh | sh
 # + Nerdfont (https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#option-7-install-script)
@@ -90,6 +102,9 @@ mkdir -p ~/Repositories/00_system/
 git clone --depth 1 git@github.com:ryanoasis/nerd-fonts
 cd nerd-fonts
 bash ./install.sh
+# + Numix Icon Theme
+# | change icons in Gnome Tewaks
+sudo dnf install numix*
 ```
 
 ### Gnome related Software
@@ -106,7 +121,7 @@ sudo dnf install gnome-tweaks
 flatpak install flathub com.mattjakeman.ExtensionManager
 # + Gnome Extensions
 # +--+ AppIndicator and KStatusNotifierItem Support
-firefox https://extensions.gnome.org/extension/615/appindicator-support/
+sudo dnf install gnome-shell-extension-appindicator
 # +--+ Bing Wallpaper
 firefox https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
 # +--+ Hue Lights
@@ -127,6 +142,13 @@ firefox https://extensions.gnome.org/extension/7065/tiling-shell/
 
 ```bash
 # + Application Programs
+# +--+ Steam
+sudo dnf install steam
+# +--+ ProtonVPN
+wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+sudo dnf install proton-vpn-gnome-desktop
+sudo dnf install libappindicator-gtk3 gnome-shell-extension-appindicator gnome-extensions-app
 # +--+ AusweisApp2 (eID client of the Federal Republic of Germany)
 sudo dnf install AusweisApp2
 # +--+ Cryptomator (https://github.com/cryptomator)
