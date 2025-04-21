@@ -82,6 +82,16 @@ You can therefore work with `sm <cmd>` in the same way as with `git <cmd>`. For 
 
 ### Terminals, Fonts and Tools
 
+```bash
+# + Starship (https://starship.rs/)
+sudo curl -sS https://starship.rs/install.sh | sh
+# + Nerdfont (https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#option-7-install-script)
+mkdir -p ~/Repositories/00_system/
+git clone --depth 1 git@github.com:ryanoasis/nerd-fonts
+cd nerd-fonts
+bash ./install.sh
+```
+
 ### Gnome related Software
 
 ```bash
