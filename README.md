@@ -1,20 +1,60 @@
 # System Mindset
 
-This repository stores and manages personal and system configurations for Fedora 40. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM). Some system configurations are inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide).
+This repository stores and manages personal and system configurations for Fedora 42. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM). Some system configurations are inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide).
 
 <!-- vim-markdown-toc GitLab -->
 
-* [Setup](#setup)
-* [Usage](#usage)
-* [Software](#software)
-  * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
-  * [Gnome related Software](#gnome-related-software)
-  * [Application Programs](#application-programs)
-  * [Updates](#updates)
-* [DNF Tuning / Faster Updated](#dnf-tuning-faster-updated)
-* [Firmware Update](#firmware-update)
-* [Media Codecs](#media-codecs)
-* [H/W Video Acceleration](#hw-video-acceleration)
+  * [Setup](#setup)
+  * [Usage](#usage)
+  * [Software](#software)
+    * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
+* [+ MenuLibre (advanced menu editor: https://github.com/bluesabre/menulibre)](#-menulibre-advanced-menu-editor-httpsgithubcombluesabremenulibre)
+* [+ dconf-editor (A GSettings editor for GNOME: https://gitlab.gnome.org/GNOME/dconf-editor)](#-dconf-editor-a-gsettings-editor-for-gnome-httpsgitlabgnomeorggnomedconf-editor)
+* [| 1. /org/gnome/settings-daemon/plugins/media-keys/volume-step => 1](#-1-orggnomesettings-daemonpluginsmedia-keysvolume-step-1)
+* [+ Gnome Tweaks (https://gitlab.gnome.org/GNOME/gnome-tweaks)](#-gnome-tweaks-httpsgitlabgnomeorggnomegnome-tweaks)
+* [+ Gnome Extension Manager (https://github.com/mjakeman/extension-manager)](#-gnome-extension-manager-httpsgithubcommjakemanextension-manager)
+* [+ Gnome Extensions](#-gnome-extensions)
+* [+--+ AppIndicator and KStatusNotifierItem Support](#-appindicator-and-kstatusnotifieritem-support)
+* [+--+ Bing Wallpaper](#-bing-wallpaper)
+* [+--+ Hue Lights](#-hue-lights)
+* [+--+ Espresso](#-espresso)
+* [+--+ Vitals](#-vitals)
+* [+--+ Brightness control using ddcutil](#-brightness-control-using-ddcutil)
+* [+--+ No overview at start-up](#-no-overview-at-start-up)
+* [+--+ Tiling Shell](#-tiling-shell)
+* [+ Application Programs](#-application-programs)
+* [+--+ Krusader](#-krusader)
+* [+--+ qt6ct color theme](#-qt6ct-color-theme)
+* [+--+ Steam](#-steam)
+* [+--+ ProtonVPN](#-protonvpn)
+* [+--+ AusweisApp2 (eID client of the Federal Republic of Germany)](#-ausweisapp2-eid-client-of-the-federal-republic-of-germany)
+* [+--+ Cryptomator (https://github.com/cryptomator)](#-cryptomator-httpsgithubcomcryptomator)
+* [+--+ OneDrive CLI-Tool (https://github.com/abraunegg/onedrive)](#-onedrive-cli-tool-httpsgithubcomabrauneggonedrive)
+* [|  +--+ OneDrive GUI (https://github.com/bpozdena/OneDriveGUI/releases/latest/)](#-onedrive-gui-httpsgithubcombpozdenaonedriveguireleaseslatest)
+* [|     | 1. Download newest AppImage](#-1-download-newest-appimage)
+* [|     | 2. Create or update OneDriveGUI Application entry in Menu Editor with AppImage](#-2-create-or-update-onedrivegui-application-entry-in-menu-editor-with-appimage)
+* [|     | 3. Add image to startup application in Gnome Tweaks](#-3-add-image-to-startup-application-in-gnome-tweaks)
+* [+--+ LibreWolf](#-librewolf)
+* [|  +--+ add the repo](#-add-the-repo)
+* [|  +--+ install the package](#-install-the-package)
+* [|  | * disable tabs: https://superuser.com/a/1619663](#-disable-tabs-httpssuperusercoma1619663)
+* [+--+ Microsoft Edge Browser](#-microsoft-edge-browser)
+* [+--+ KeePassXC (https://github.com/keepassxreboot/keepassxc)](#-keepassxc-httpsgithubcomkeepassxrebootkeepassxc)
+* [+ Color Picker](#-color-picker)
+* [+ DDC Control](#-ddc-control)
+* [+ solaar (Linux device manager for Logitech devices: https://github.com/pwr-Solaar/Solaar)](#-solaar-linux-device-manager-for-logitech-devices-httpsgithubcompwr-solaarsolaar)
+* [| 1. Add to startup applications in Gnome Tweaks](#-1-add-to-startup-applications-in-gnome-tweaks)
+* [+ inkscape](#-inkscape)
+* [+ cherrytree](#-cherrytree)
+* [+ Spotify](#-spotify)
+* [+ OpenRGB](#-openrgb)
+* [| install udev (https://openrgb.org/udev)](#-install-udev-httpsopenrgborgudev)
+* [+ MQTT Explorer (https://github.com/thomasnordquist/MQTT-Explorer)](#-mqtt-explorer-httpsgithubcomthomasnordquistmqtt-explorer)
+* [| 1. Download newest AppImage (https://github.com/thomasnordquist/MQTT-Explorer/releases/latest/)](#-1-download-newest-appimage-httpsgithubcomthomasnordquistmqtt-explorerreleaseslatest)
+* [| 2. Create or update MQTT-Explorer Application entry in Menu Editor with AppImage](#-2-create-or-update-mqtt-explorer-application-entry-in-menu-editor-with-appimage)
+* [| 3. Add image to startup application in Gnome Tweaks](#-3-add-image-to-startup-application-in-gnome-tweaks-1)
+* [+ system](#-system)
+* [enable OpenH264 plugin in firefox (about:addons => Plugins)](#enable-openh264-plugin-in-firefox-aboutaddons-plugins)
 
 <!-- vim-markdown-toc -->
 
@@ -105,7 +145,19 @@ bash ./install.sh
 # + Numix Icon Theme
 # | change icons in Gnome Tewaks
 sudo dnf install numix*
-```
+# + NeoVim
+sudo dnf install neovim
+# +--+ lazyvim
+#    +--+ backup
+ts=$(date +'%d.%m.%Y_%H-%M-%S')
+mv ~/.config/nvim ~/.config/nvim.bak-$ts
+mv ~/.local/share/nvim ~/.local/share/nvim.bak-$ts
+mv ~/.local/state/nvim ~/.local/state/nvim.bak-$ts
+mv ~/.cache/nvim ~/.cache/nvim.bak-$ts
+#    +--+ Installation
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
+´´´
 
 ### Gnome related Software
 
@@ -142,6 +194,10 @@ firefox https://extensions.gnome.org/extension/7065/tiling-shell/
 
 ```bash
 # + Application Programs
+# +--+ Krusader
+dnf install krusader konsole qt6ct papirus-icon-theme kde-cli-tools
+#    +--+ qt6ct color theme
+wget -P ~/.config/qt6ct/colors/ https://raw.githubusercontent.com/catppuccin/qt5ct/refs/heads/main/themes/catppuccin-mocha-green.conf
 # +--+ Steam
 sudo dnf install steam
 # +--+ ProtonVPN
@@ -206,17 +262,6 @@ cd
 ```bash
 # + system
 dnf update --refresh
-# +--+ nodejs
-npm install -g npm
-npm update
-npm audit
-# +--+ neovim
-# |  +--+ update Plug
-nvim --headless +PlugUpgrade +qa
-# |  +--+ update plugins
-nvim --headless +PlugUpdate +qa
-# |  +--+ update coc-modules
-nvim +CocUpdate
 ```
 
 ## DNF Tuning / Faster Updated
