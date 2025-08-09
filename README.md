@@ -2,6 +2,21 @@
 
 This repository stores and manages personal and system configurations for Fedora 42. It is based on a bare repository and inspired by Atlassian's [article](https://www.atlassian.com/git/tutorials/dotfiles) and DT's [video](https://www.youtube.com/watch?v=tBoLDpTWVOM). Some system configurations are inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide).
 
+<!-- mtoc-start -->
+
+* [Setup](#setup)
+* [Usage](#usage)
+* [Software](#software)
+  * [Terminals, Fonts and Tools](#terminals-fonts-and-tools)
+  * [Gnome related Software](#gnome-related-software)
+  * [Application Programs](#application-programs)
+  * [Updates](#updates)
+* [DNF Tuning / Faster Updated](#dnf-tuning--faster-updated)
+* [Firmware Update](#firmware-update)
+* [Media Codecs](#media-codecs)
+* [H/W Video Acceleration](#hw-video-acceleration)
+
+<!-- mtoc-end -->
 
 ## Setup
 
@@ -102,7 +117,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak-$ts
 #    +--+ Installation
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
-´´´
+```
 
 ### Gnome related Software
 
