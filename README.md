@@ -138,8 +138,8 @@ sudo dnf install gnome-shell-extension-appindicator
 firefox https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
 # +--+ Hue Lights
 firefox https://extensions.gnome.org/extension/3737/hue-lights/
-# +--+ Espresso
-firefox https://extensions.gnome.org/extension/4135/espresso/
+# +--+ Caffeine
+firefox https://extensions.gnome.org/extension/517/caffeine/
 # +--+ Vitals
 firefox https://extensions.gnome.org/extension/1460/vitals/
 # +--+ Brightness control using ddcutil
