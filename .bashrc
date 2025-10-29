@@ -97,8 +97,10 @@ alias ktr='kitty @ set-tab-title'
 #fastfetch
 # +--+ launch ssh-agent with its own "key space" - see man page
 eval "$(ssh-agent -s)" >/dev/null
-# +--+ start solaar without gui
-solaar --window hide 1>/dev/null 2>/dev/null &
+# +--+ start solaar without gui if it is not running
+if ! pgrep solaar >/dev/null; then
+  solaar --window hide 1>/dev/null 2>/dev/null &
+fi
 
 ###############################################################################
 # + Command Line Prompt
