@@ -93,10 +93,12 @@ alias ktr='kitty @ set-tab-title'
 ###############################################################################
 # + Startup
 # | commands to display when starting a terminal session
-# + -- + fastfetch
+# +--+ fastfetch
 #fastfetch
-# + -- + launch ssh-agent with its own "key space" - see man page
+# +--+ launch ssh-agent with its own "key space" - see man page
 eval "$(ssh-agent -s)" >/dev/null
+# +--+ start solaar without gui
+solaar --window hide 1>/dev/null 2>/dev/null &
 
 ###############################################################################
 # + Command Line Prompt
