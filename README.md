@@ -15,6 +15,7 @@ This repository stores and manages personal and system configurations for Fedora
 * [Firmware Update](#firmware-update)
 * [Media Codecs](#media-codecs)
 * [H/W Video Acceleration](#hw-video-acceleration)
+* [udev Rules](#udev-rules)
 
 <!-- mtoc-end -->
 
@@ -267,4 +268,15 @@ dnf group upgrade --with-optional Multimedia
 dnf install ffmpeg ffmpeg-libs libva libva-utils
 dnf config-manager --set-enabled fedora-cisco-openh264
 # enable OpenH264 plugin in firefox (about:addons => Plugins)
+```
+
+## udev Rules
+
+```bash
+# + Keychron K2 HE
+curl -s https://raw.githubusercontent.com/qmk/qmk_firmware/refs/heads/master/util/udev/50-qmk.rules | sudo tee /etc/udev/50-qmk.rules > /dev/null
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+
+```
 ```
