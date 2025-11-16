@@ -101,6 +101,10 @@ eval "$(ssh-agent -s)" >/dev/null
 if ! pgrep solaar >/dev/null; then
   solaar --window hide 1>/dev/null 2>/dev/null &
 fi
+# +--+ start radiotray-ng it is not running
+if ! pgrep radiotray-ng >/dev/null; then
+  radiotray-ng 1>/dev/null 2>/dev/null &
+fi
 
 ###############################################################################
 # + Command Line Prompt
