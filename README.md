@@ -287,14 +287,17 @@ On Fedora, such devices are handled with restricted default permissions. This me
 
 As a result, the Launcher cannot communicate with the keyboard unless you adjust the udev permissions. To verify that Chrome can now access the device, open `chrome://device-log` and look for new hid entries appearing when you plug in or interact with your Keychron keyboard.
 
+The following Bash snippet demonstrates a temporary workaround.
+
 ```bash
 # + Keychron K2 HE
-sudo groupadd hidaccess
-sudo usermod -aG hidaccess $USER
-
-echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="3434", MODE="0660", GROUP="hidaccess"' | sudo tee /etc/udev/rules.d/99-keychron-hid.rules > /dev/null
-
+echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="3434", MODE="0666"' | sudo tee /etc/udev/rules.d/99-keychron-hid.rules > /dev/null
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+chromium-browser --user-data-dir=/tmp/chromium-su --no-sandbox "https://launcher.keychron.com/"
+echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="3434", MODE="0600"' | sudo tee /etc/udev/rules.d/99-keychron-hid.rules > /dev/null
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
 ```
+
