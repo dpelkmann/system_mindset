@@ -16,6 +16,7 @@ This repository stores and manages personal and system configurations for Fedora
 * [Media Codecs](#media-codecs)
 * [H/W Video Acceleration](#hw-video-acceleration)
 * [udev Rules](#udev-rules)
+  * [Keychron K2 HE](#keychron-k2-he)
 
 <!-- mtoc-end -->
 
@@ -90,6 +91,12 @@ dnf install kitty
 dnf install lsd
 # + htop
 dnf install htop
+# + btop
+dnf install btop
+# + nethogs (bandwidth per process)
+dnf install nethogs
+# + iftop (traffic per connection)
+dnf install iftop
 # + tig
 dnf install tig
 # + bat
@@ -272,11 +279,22 @@ dnf config-manager --set-enabled fedora-cisco-openh264
 
 ## udev Rules
 
+### Keychron K2 HE
+
+Some Keychron keyboards do not register as standard HID keyboards. Instead, they identify themselves as vendor‑specific HID devices.
+
+On Fedora, such devices are handled with restricted default permissions. This means applications running as a normal user — including the Keychron Launcher — cannot access the device via /dev/hidraw*.
+
+As a result, the Launcher cannot communicate with the keyboard unless you adjust the udev permissions. To verify that Chrome can now access the device, open `chrome://device-log` and look for new hid entries appearing when you plug in or interact with your Keychron keyboard.
+
 ```bash
 # + Keychron K2 HE
-curl -s https://raw.githubusercontent.com/qmk/qmk_firmware/refs/heads/master/util/udev/50-qmk.rules | sudo tee /etc/udev/50-qmk.rules > /dev/null
+sudo groupadd hidaccess
+sudo usermod -aG hidaccess $USER
+
+echo 'KERNEL=="hidraw*", ATTRS{idVendor}=="3434", MODE="0660", GROUP="hidaccess"' | sudo tee /etc/udev/rules.d/99-keychron-hid.rules > /dev/null
+
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 
-```
 ```
