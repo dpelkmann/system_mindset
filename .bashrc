@@ -101,6 +101,9 @@ alias ktr='kitty @ set-tab-title'
 #    | input continues to work because it follows a separate focus path.
 #    | Pressing the Super key forces GNOME Shell to recalculate the pointer
 #    | region, restoring normal mouse behavior.
+#    |
+#    | ATTENTION: .bashrc has to be called after xwaylandvideo (e.g. a terminal
+#    | in auto start would work)
 [ "$XDG_CURRENT_DESKTOP" = "GNOME" ] && pgrep xwaylandvideo >/dev/null && pkill xwaylandvideo
 # +--+ fastfetch
 #fastfetch
