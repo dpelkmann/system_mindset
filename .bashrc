@@ -93,6 +93,15 @@ alias ktr='kitty @ set-tab-title'
 ###############################################################################
 # + Startup
 # | commands to display when starting a terminal session
+# +--+ xwaylandvideocast bug in gnome 50(+?)
+#    | When xwaylandvideobridge is running, it creates an invisible X11 window
+#    | that GNOME 50 mistakenly treats as a desktop surface. Clicking on the
+#    | desktop shifts the pointer focus to this phantom window, causing all
+#    | regular application windows to stop receiving mouse events. Keyboard
+#    | input continues to work because it follows a separate focus path.
+#    | Pressing the Super key forces GNOME Shell to recalculate the pointer
+#    | region, restoring normal mouse behavior.
+[ "$XDG_CURRENT_DESKTOP" = "GNOME" ] && pgrep xwaylandvideo >/dev/null && pkill xwaylandvideo
 # +--+ fastfetch
 #fastfetch
 # +--+ launch ssh-agent with its own "key space" - see man page
@@ -120,16 +129,21 @@ eval "$(starship init bash)"
 #fi
 
 ###############################################################################
+# + Set Environment Variables
+# +--+ Raspberry Pi Pico SDK
+export PICO_SDK_PATH=$HOME/Repositories/00_system/pico-sdk
+
+###############################################################################
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
-export MAMBA_EXE='/home/dpelkmann/.local/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/home/dpelkmann/micromamba';
-__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+export MAMBA_EXE='/home/dpelkmann/.local/bin/micromamba'
+export MAMBA_ROOT_PREFIX='/home/dpelkmann/micromamba'
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2>/dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__mamba_setup"
+  eval "$__mamba_setup"
 else
-    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+  alias micromamba="$MAMBA_EXE" # Fallback on help from micromamba activate
 fi
 unset __mamba_setup
 # <<< mamba initialize <<<
