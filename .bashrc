@@ -86,9 +86,8 @@ rr_kitty_rename() {
     ranger
   fi
 }
-alias rr=rr_kitty_rename
-# +--+ kitty tab rename
-alias ktr='kitty @ set-tab-title'
+# +--+ yazi
+alias yazi='~/Software/yazi/yazi'
 
 ###############################################################################
 # + Startup
