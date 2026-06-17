@@ -11,7 +11,6 @@ This repository stores and manages personal and system configurations for Fedora
   * [Gnome related Software](#gnome-related-software)
   * [Application Programs](#application-programs)
   * [Updates](#updates)
-* [DNF Tuning / Faster Updated](#dnf-tuning--faster-updated)
 * [Firmware Update](#firmware-update)
 * [Media Codecs](#media-codecs)
 * [H/W Video Acceleration](#hw-video-acceleration)
@@ -107,15 +106,21 @@ dnf install fastfetch
 sudo curl -sS https://starship.rs/install.sh | sh
 # + Nerdfont (https://github.com/ryanoasis/nerd-fonts?tab=readme-ov-file#option-7-install-script)
 mkdir -p ~/Repositories/00_system/
-git clone --depth 1 git@github.com:ryanoasis/nerd-fonts
+cd ~/Repositories/00_system/
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
 cd nerd-fonts
 bash ./install.sh
+# + MicroMamba
+"${SHELL}" <(curl -L micro.mamba.pm/install.sh)
+# + Fuse Libs
+sudo dnf install fuse-libs
 # + Numix Icon Theme
 # | change icons in Gnome Tewaks
 sudo dnf install numix*
 # + NeoVim
 sudo dnf install neovim
 # +--+ lazyvim
+#    | note: for user and root
 #    +--+ backup
 ts=$(date +'%d.%m.%Y_%H-%M-%S')
 mv ~/.config/nvim ~/.config/nvim.bak-$ts
@@ -130,8 +135,8 @@ rm -rf ~/.config/nvim/.git
 ### Gnome related Software
 
 ```bash
-# + MenuLibre (advanced menu editor: https://github.com/bluesabre/menulibre)
-sudo dnf install menulibre
+# + Alacarte (Alacarte is a menu editor for GNOME: https://gitlab.gnome.org/GNOME/alacarte)
+sudo dnf install alacarte
 # + dconf-editor (A GSettings editor for GNOME: https://gitlab.gnome.org/GNOME/dconf-editor)
 # | 1. /org/gnome/settings-daemon/plugins/media-keys/volume-step => 1
 sudo dnf install dconf-editor
@@ -144,16 +149,10 @@ flatpak install flathub com.mattjakeman.ExtensionManager
 sudo dnf install gnome-shell-extension-appindicator
 # +--+ Bing Wallpaper
 firefox https://extensions.gnome.org/extension/1262/bing-wallpaper-changer/
-# +--+ Hue Lights
-firefox https://extensions.gnome.org/extension/3737/hue-lights/
 # +--+ Caffeine
 firefox https://extensions.gnome.org/extension/517/caffeine/
 # +--+ Vitals
 firefox https://extensions.gnome.org/extension/1460/vitals/
-# +--+ Brightness control using ddcutil
-firefox https://extensions.gnome.org/extension/2645/brightness-control-using-ddcutil/
-# +--+ No overview at start-up
-firefox https://extensions.gnome.org/extension/4099/no-overview/
 # +--+ Tiling Shell
 firefox https://extensions.gnome.org/extension/7065/tiling-shell/
 ```
@@ -163,16 +162,16 @@ firefox https://extensions.gnome.org/extension/7065/tiling-shell/
 ```bash
 # + Application Programs
 # +--+ Krusader
-dnf install krusader konsole qt6ct papirus-icon-theme kde-cli-tools
+dnf install krusader konsole qt6ct papirus-icon-theme kget kdiff3 thunderbird krename kate lzma lha unarj unrar kget
 #    +--+ qt6ct color theme
 wget -P ~/.config/qt6ct/colors/ https://raw.githubusercontent.com/catppuccin/qt5ct/refs/heads/main/themes/catppuccin-mocha-green.conf
 # +--+ Steam
 sudo dnf install steam
 # +--+ ProtonVPN
-wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
-sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.4-1.noarch.rpm"
+sudo dnf install ./protonvpn-stable-release-1.0.4-1.noarch.rpm && sudo dnf check-update --refresh
 sudo dnf install proton-vpn-gnome-desktop
-sudo dnf install libappindicator-gtk3 gnome-shell-extension-appindicator gnome-extensions-app
+sudo dnf install libappindicator-gtk3 gnome-shell-extension-appindicator
 # +--+ AusweisApp2 (eID client of the Federal Republic of Germany)
 sudo dnf install AusweisApp2
 # +--+ Cryptomator (https://github.com/cryptomator)
@@ -185,32 +184,29 @@ sudo dnf install onedrive
 # |     | 3. Add image to startup application in Gnome Tweaks
 mkdir -p $HOME/Software/OneDriveGUI/
 cd $HOME/Software/OneDriveGUI/
-wget https://github.com/bpozdena/OneDriveGUI/releases/download/v1.1.1a/OneDriveGUI-1.1.1-x86_64.AppImage
+wget https://github.com/bpozdena/OneDriveGUI/releases/download/v1.3.1/OneDriveGUI-1.3.1-x86_64.AppImage 
 chmod +x ./OneDriveGUI*
 cd
 # +--+ LibreWolf
 # |  +--+ add the repo
-curl -fsSL https://rpm.librewolf.net/librewolf-repo.repo | pkexec tee /etc/yum.repos.d/librewolf.repo
+sudo dnf config-manager addrepo --from-repofile=https://repo.librewolf.net/librewolf.repo
+sudo dnf install librewolf
 # |  +--+ install the package
 sudo dnf install librewolf
 # |  | * disable tabs: https://superuser.com/a/1619663
+# +--+ BTRFS Assistant
+sudo dnf install btrfs-assistant
 # +--+ Microsoft Edge Browser
 flatpak install flathub com.microsoft.Edge
 # +--+ KeePassXC (https://github.com/keepassxreboot/keepassxc)
 sudo dnf install keepassxc
 # + Color Picker
 sudo dnf install gcolor3
-# + DDC Control
-sudo dnf install ccdcontrol-gtk
 # + solaar (Linux device manager for Logitech devices: https://github.com/pwr-Solaar/Solaar)
 # | 1. Add to startup applications in Gnome Tweaks
 sudo dnf install solaar
 # + inkscape
 sudo dnf install inkscape
-# + cherrytree
-flatpak install flathub com.giuspen.cherrytree
-# + Spotify
-flatpak install flathub com.spotify.Client
 # + OpenRGB
 # | install udev (https://openrgb.org/udev)
 flatpak install flathub org.openrgb.OpenRGB
@@ -232,22 +228,6 @@ cd
 dnf update --refresh
 ```
 
-## DNF Tuning / Faster Updated
-
-The standard dnf settings can be improved to make it faster (inspired by [devangshekhawat](https://github.com/devangshekhawat/Fedora-40-Post-Install-Guide)). Add to your /etc/dnf/dnf.conf:
-
-```conf
-[main]
-gpgcheck=1
-installonly_limit=3
-clean_requirements_on_remove=True
-skip_if_unavailable=True
-best=False
-fastestmirror=0
-deltarpm=true
-max_parallel_downloads=10
-```
-
 ## Firmware Update
 
 If your system supports firware update through lvfs, update it.
@@ -262,19 +242,19 @@ fwupdmgr update
 ## Media Codecs
 
 ``` bash
-dnf groupupdate 'core' 'multimedia' 'sound-and-video' --setopt='install_weak_deps=False' --exclude='PackageKit-gstreamer-plugin' --allowerasing && sync
-dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing
-dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg
-dnf install lame\* --exclude=lame-devel
-dnf group upgrade --with-optional Multimedia
+sudo dnf4 group install multimedia
+sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.
+sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
+sudo dnf install ffmpeg-libs libva libva-utils
 ```
 
 ## H/W Video Acceleration
 
 ```bash
-dnf install ffmpeg ffmpeg-libs libva libva-utils
-dnf config-manager --set-enabled fedora-cisco-openh264
-# enable OpenH264 plugin in firefox (about:addons => Plugins)
+sudo dnf install -y openh264 gstreamer1-plugin-openh264 mozilla-openh264
+sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
+# after this enable the OpenH264 Plugin in Firefox's settings.
 ```
 
 ## udev Rules
