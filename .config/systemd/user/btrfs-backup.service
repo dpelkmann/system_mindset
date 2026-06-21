@@ -1,0 +1,6 @@
+[Unit]
+Description=Btrfs Backup (runs after user login)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sudo /home/dpelkmann/.btrfs/btrfs-backup-and-retention.sh
