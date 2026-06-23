@@ -130,6 +130,16 @@ mv ~/.cache/nvim ~/.cache/nvim.bak-$ts
 #    +--+ Installation
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
+# +--+ configure btrfs-backup
+#    +--+ get hash of file
+sha256sum ~/.btrfs/btrfs-backup-and-retention.sh
+#    +--+ make it executeable
+chmod +x ~/.btrfs/btrfs-backup-and-retention.sh
+#    +--+ allow sudo for script (hash-pinned)
+(root) NOPASSWD: sha256:<HASH> /home/dpelkmann/.btrfs/btrfs-backup-and-retention.sh
+#    +--+ configure systemd
+systemctl --user daemon-reload
+systemctl --user enable --now btrfs-backup.timer
 ```
 
 ### Gnome related Software
