@@ -117,6 +117,12 @@ sudo dnf install fuse-libs
 # + Numix Icon Theme
 # | change icons in Gnome Tewaks
 sudo dnf install numix*
+# + RPMFusion free and nonfree
+# | https://rpmfusion.org/Configuration
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# + ffmpeg and libheif (for .heic images)
+sudo dnf install ffmpeg --allowerasing
+sudo dnf install libheif libheif-freeworld libheif-tools.x86_64
 # + NeoVim
 sudo dnf install neovim
 # +--+ lazyvim
