@@ -172,7 +172,7 @@ firefox https://extensions.gnome.org/extension/7065/tiling-shell/
 ```bash
 # + Application Programs
 # +--+ Krusader
-dnf install krusader konsole qt6ct papirus-icon-theme kget kdiff3 thunderbird krename kate lzma lha unarj unrar kget
+dnf install krusader konsole qt6ct papirus-icon-theme kget kdiff3 thunderbird krename kate lzma lha unarj unrar kget gwenview
 #    +--+ qt6ct color theme
 wget -P ~/.config/qt6ct/colors/ https://raw.githubusercontent.com/catppuccin/qt5ct/refs/heads/main/themes/catppuccin-mocha-green.conf
 # +--+ Steam
