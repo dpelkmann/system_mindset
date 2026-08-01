@@ -1,6 +1,9 @@
 [Unit]
-Description=Btrfs Backup (runs after user login)
+Description=Btrfs backup and retention
+After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/sudo /home/dpelkmann/.btrfs/btrfs-backup-and-retention.sh
+ExecStart=/usr/local/bin/btrfs-backup-and-retention.sh
+Nice=10
+TimeoutStartSec=1h

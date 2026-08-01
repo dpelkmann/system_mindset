@@ -1,9 +1,10 @@
 [Unit]
-Description=Daily Btrfs Backup After Login
+Description=Run Btrfs backup 5 minutes after boot and every 12 hours
 
 [Timer]
-OnCalendar=daily
+OnBootSec=5min
+OnUnitActiveSec=12h
 Persistent=true
 
 [Install]
-WantedBy=default.target
+WantedBy=timers.target
