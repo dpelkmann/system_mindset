@@ -1,15 +1,14 @@
 #!/bin/bash
-
 set -euo pipefail
 
 BACKUP_MOUNT="/mnt/c1f11c8d-6f77-426c-aca6-295b08380de5"
 KEEP=10
 LOG="/var/log/btrfs-backup-and-retention.log"
+LOCK="/var/lock/btrfs-backup-and-retention.lock"
 
-echo "[$(date '+%F %T')] === Backup+Retention Start ===" | tee -a "$LOG"
-
-mkdir -p "$BACKUP_MOUNT/root"
-mkdir -p "$BACKUP_MOUNT/home"
+log() {
+  printf '[%s] %s\n' "$(date '+%F %T')" "$*" | tee -a "$LOG"
+}
 
 get_latest_snapshot() {
   local path="$1"
@@ -21,30 +20,69 @@ do_backup() {
   local dst_path="$2"
   local label="$3"
 
-  latest=$(get_latest_snapshot "$src_snapshots")
-  latest_src="$src_snapshots/$latest/snapshot"
+  mkdir -p "$dst_path"
 
-  prev=$(ls -1 "$dst_path" | sort -n | tail -n 1 || true)
+  # Remove leftover temp snapshot from aborted receive
+  if [ -d "$dst_path/snapshot" ]; then
+    log "[$label] Removing leftover temporary snapshot: $dst_path/snapshot"
+    rm -rf "$dst_path/snapshot"
+  fi
 
-  echo "[$(date '+%F %T')] $label: latest=$latest prev=$prev" | tee -a "$LOG"
+  local latest
+  latest=$(get_latest_snapshot "$src_snapshots" || true)
 
-  # Exit if no new snapshot
-  if [ "$latest" = "$prev" ]; then
-    echo "[$(date '+%F %T')] No new $label snapshot, skipping." | tee -a "$LOG"
+  if [ -z "$latest" ]; then
+    log "[$label] No snapshots found in $src_snapshots, skipping"
     return
   fi
 
-  # Build send command
+  local latest_src="$src_snapshots/$latest/snapshot"
+  if [ ! -d "$latest_src" ]; then
+    log "[$label] Latest snapshot missing: $latest_src"
+    return
+  fi
+
+  local prev
+  prev=$(ls -1 "$dst_path" | sort -n | tail -n 1 || true)
+
+  log "[$label] latest=$latest prev=${prev:-none}"
+
+  # No new snapshot → skip
+  if [ -n "$prev" ] && [ "$latest" = "$prev" ]; then
+    log "[$label] No new snapshot, skipping"
+    return
+  fi
+
+  # Decide incremental vs full
+  local use_parent=false
+  local parent_src=""
+
   if [ -n "$prev" ]; then
     parent_src="$src_snapshots/$prev/snapshot"
-    btrfs send -p "$parent_src" "$latest_src" | btrfs receive "$dst_path"
+    if [ -d "$parent_src" ]; then
+      use_parent=true
+      log "[$label] Using incremental parent: $parent_src"
+    else
+      log "[$label] Parent missing on source → full send"
+    fi
+  fi
+
+  # Perform send
+  if $use_parent; then
+    log "[$label] Incremental send: -p $parent_src → $latest_src"
+    if ! btrfs send -p "$parent_src" "$latest_src" | btrfs receive "$dst_path"; then
+      log "[$label] Incremental failed → full send fallback"
+      btrfs send "$latest_src" | btrfs receive "$dst_path"
+    fi
   else
+    log "[$label] Full send: $latest_src"
     btrfs send "$latest_src" | btrfs receive "$dst_path"
   fi
 
   # Rename received snapshot
   if [ -d "$dst_path/snapshot" ]; then
     mv "$dst_path/snapshot" "$dst_path/$latest"
+    log "[$label] Received snapshot renamed to $dst_path/$latest"
   fi
 }
 
@@ -52,27 +90,52 @@ cleanup_subvolume() {
   local path="$1"
   local label="$2"
 
-  snapshots=($(ls -1 "$path" | sort -n))
-  count=${#snapshots[@]}
+  mkdir -p "$path"
+  local snapshots
+  mapfile -t snapshots < <(ls -1 "$path" | sort -n || true)
 
+  local count=${#snapshots[@]}
   if ((count <= KEEP)); then
-    echo "[$(date '+%F %T')] Nothing to delete for $label (count=$count)" | tee -a "$LOG"
+    log "[$label] Nothing to delete (count=$count)"
     return
   fi
 
-  delete_count=$((count - KEEP))
-  echo "[$(date '+%F %T')] Deleting $delete_count old $label backups" | tee -a "$LOG"
+  local delete_count=$((count - KEEP))
+  log "[$label] Deleting $delete_count old snapshots"
 
   for ((i = 0; i < delete_count; i++)); do
-    old="${snapshots[$i]}"
-    btrfs subvolume delete "$path/$old"
+    local old="${snapshots[$i]}"
+    local old_path="$path/$old"
+    log "[$label] Deleting $old_path"
+    btrfs subvolume delete "$old_path"
   done
 }
 
-do_backup "/.snapshots" "$BACKUP_MOUNT/root" "root"
-do_backup "/home/.snapshots" "$BACKUP_MOUNT/home" "home"
+main() {
+  exec 200>"$LOCK"
+  flock -n 200 || {
+    log "Another instance is running, exiting"
+    exit 1
+  }
 
-cleanup_subvolume "$BACKUP_MOUNT/root" "root"
-cleanup_subvolume "$BACKUP_MOUNT/home" "home"
+  log "=== Backup+Retention Start ==="
 
-echo "[$(date '+%F %T')] === Backup+Retention Finished ===" | tee -a "$LOG"
+  mkdir -p "$BACKUP_MOUNT/root" "$BACKUP_MOUNT/home"
+
+  if ! mountpoint -q "$BACKUP_MOUNT"; then
+    log "ERROR: $BACKUP_MOUNT is not mounted"
+    exit 1
+  fi
+
+  log "Mount options: $(findmnt -no OPTIONS "$BACKUP_MOUNT")"
+
+  do_backup "/.snapshots" "$BACKUP_MOUNT/root" "root"
+  do_backup "/home/.snapshots" "$BACKUP_MOUNT/home" "home"
+
+  cleanup_subvolume "$BACKUP_MOUNT/root" "root"
+  cleanup_subvolume "$BACKUP_MOUNT/home" "home"
+
+  log "=== Backup+Retention Finished ==="
+}
+
+main "$@"
