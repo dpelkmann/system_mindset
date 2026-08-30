@@ -137,6 +137,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak-$ts
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 # +--+ configure btrfs-backup
+#    +--+ check path to file (default: /home/dpelkmann/)
 #    +--+ get hash of file
 sha256sum ~/.btrfs/btrfs-backup-and-retention.sh
 #    +--+ make it executeable
